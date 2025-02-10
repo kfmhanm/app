@@ -1,0 +1,159 @@
+name: pride
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.2+1
+
+environment:
+  sdk: '>=3.1.2 <4.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+# [onMessage] {senderId: null, category: null, collapseKey: com.masader.vallo, contentAvailable: false, data: {room_id: 24, fcmData: Start data, ar: تم ارسال رساله جديده من قبل test, en: message has been sent from the test, type: chat}, from: 425391737980, messageId: 0:1730384557421925%8d240df88d240df8, messageType: null, mutableContent: false, notification: {title: رسالة جديدة, titleLocArgs: [], titleLocKey: null, body: تم ارسال رساله جديده من قبل test, bodyLocArgs: [], bodyLocKey: null, android: {channelId: null, clickAction: null, color: null, count: null, imageUrl: null, link: null, priority: 0, smallIcon: null, sound: note, ticker: null, tag: null, visibility: 0}, apple: null, web: null}, sentTime: 1730384557412, threadId: null, ttl: 2419200}
+
+
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  dio: ^5.2.0
+  cached_network_image: ^3.2.3
+  shimmer: ^3.0.0
+  flutter_svg: ^2.0.7
+  easy_localization: ^3.0.2
+  smooth_page_indicator: ^1.1.0
+  bloc: ^8.1.2
+  flutter_bloc: ^8.1.3
+  carousel_slider: ^5.0.0
+  animated_widgets_flutter: ^1.1.1+2
+  get_it: ^7.6.0
+  lottie: ^1.3.0
+  fluttertoast: ^8.1.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  flutter_smart_dialog: ^4.8.2
+  video_thumbnail: ^0.5.3
+  video_player: ^2.8.6
+  chewie: ^1.8.1
+
+  bot_toast: ^4.0.3
+  responsive_framework: ^1.4.0
+  pretty_dio_logger:
+  permission_handler:
+  image_picker:
+  device_info_plus:
+  dotted_border:
+  pinput:
+  animate_do:
+  intl: ^0.19.0
+  infinite_scroll_pagination: ^4.0.0
+  flutter_rating_bar: ^4.0.1
+  webview_flutter: ^4.8.0
+  flutter_slidable: ^4.0.0
+  google_maps_flutter: ^2.9.0
+  geocoding: ^3.0.0
+  geolocator: ^13.0.1
+  file_picker: ^8.1.2
+  path_provider: ^2.1.4
+  flutter_image_compress: ^2.3.0
+  share_plus: ^10.1.1
+  flutter_widget_from_html: ^0.15.2
+  photo_view: ^0.15.0
+  # pusher_client:
+  #   git:
+  #     url: https://github.com/eng-sayed/pusher_client.git
+  #     ref: master
+  pusher_channels_flutter: ^2.2.1
+  app_links: ^6.3.2
+  widget_to_marker: ^1.0.6
+  google_maps_cluster_manager_2: ^3.2.0
+  url_launcher: ^6.3.1
+  flutter_local_notifications: ^17.2.3
+  firebase_messaging: ^15.1.3
+  firebase_core:
+  device_uuid: ^0.0.4
+
+  # url_launcher: ^6.2.4
+  # whatsapp: ^2.0.0 
+  # Use this line for build with obfuscate app
+  
+    # flutter clean && flutter pub get && flutter build ipa --dart-define-from-file=env.json --obfuscate --split-debug-info=build/app/outputs/symbols
+
+# dart pub run easy_localization:generate -S "assets/translations" -O "lib/core/app_strings" -o "locale_keys.dart" -f keys
+ 
+#  mason make feature -o .././lib/features
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner:
+  flutter_gen_runner:
+  injectable_generator: 
+  change_app_package_name: ^1.4.0
+
+  
+flutter_gen:
+  output: lib/core/resources/gen/
+  line_length: 80 
+
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/json/
+    - assets/fonts/
+    - assets/icons/
+    - assets/translations/
+
+  fonts:
+    - family: Almarai
+      fonts:
+        - asset: assets/fonts/Almarai-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/Almarai-ExtraBold.ttf
+          weight: 900
+        - asset: assets/fonts/Almarai-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Almarai-Regular.ttf
+          weight: 400

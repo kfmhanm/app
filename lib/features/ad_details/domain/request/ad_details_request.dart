@@ -1,0 +1,4 @@
+
+class ad_detailsRequest {
+  
+}

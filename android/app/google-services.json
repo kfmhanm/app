@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "425391737980",
+    "project_id": "pride-99df9",
+    "storage_bucket": "pride-99df9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425391737980:android:034062460e115af953cdf9",
+        "android_client_info": {
+          "package_name": "com.masader.vallo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnM661uywUQtsJYsht8yh790IKYxLCu6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

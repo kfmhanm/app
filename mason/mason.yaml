@@ -1,0 +1,37 @@
+bricks:
+    readme:
+      git:
+        url: https://github.com/YoussefAbdelmonem/mason-updates
+        path: bricks/readme
+        ref: without_screenUtil
+    assets:
+      git:
+        url: https://github.com/YoussefAbdelmonem/mason-updates
+        path: bricks/assets
+        ref: without_screenUtil
+    project_template:
+      git:
+        url: https://github.com/YoussefAbdelmonem/mason-updates
+        path: bricks/project_template
+        ref: without_screenUtil
+    feature:
+      git:
+        url: https://github.com/YoussefAbdelmonem/mason-updates
+        path: bricks/feature
+        ref: without_screenUtil
+    auth:
+      git:
+        url: https://github.com/YoussefAbdelmonem/mason-updates
+        path: bricks/auth
+        ref: without_screenUtil
+    webview_payment:
+      git:
+        url: https://github.com/YoussefAbdelmonem/mason-updates
+        path: bricks/webview_payment 
+        ref: without_screenUtil
+    static_pages:
+      git:
+        url: https://github.com/YoussefAbdelmonem/mason-updates
+        path: bricks/static_pages
+        ref: without_screenUtil
+
