@@ -57,7 +57,7 @@ dependencies:
   flutter_smart_dialog: ^4.8.2
   video_thumbnail: ^0.5.3
   video_player: ^2.8.6
-  chewie: ^1.8.1
+  chewie: 1.8.5
 
   bot_toast: ^4.0.3
   responsive_framework: ^1.4.0
