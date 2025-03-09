@@ -26,10 +26,12 @@ import '../../domain/model/chats_model.dart';
 import '../widgets/message_widget.dart';
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({super.key, required this.roomId, this.adId, this.userId});
+  const ChatScreen(
+      {super.key, required this.roomId, this.adId, this.userId, this.username});
   final String roomId;
   final String? adId;
   final String? userId;
+  final String? username;
   @override
   State<ChatScreen> createState() => _ChatScreenState();
 }
@@ -130,8 +132,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("widget.roomId ${widget.roomId}");
-    print("widget.adId ${widget.adId}");
+    // print("widget.roomId ${widget.roomId}");
+    // print("widget.adId ${widget.adId}");
     return BlocProvider(
       create: (context) {
         return (widget.roomId.isEmpty)
@@ -166,7 +168,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           contentPadding: EdgeInsets.zero,
                           title: CustomText(
                             overflow: TextOverflow.ellipsis,
-                            cubit.user?.name ?? cubit.user?.name ?? "",
+                            cubit.user?.name ?? widget.username ?? "",
                             weight: FontWeight.w800,
                             fontSize: 16,
                             color: Colors.white,

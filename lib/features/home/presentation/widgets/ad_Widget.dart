@@ -91,7 +91,9 @@ class AdWidget extends StatelessWidget {
               Positioned.directional(
                 top: 8,
                 start: 8,
-                textDirection: TextDirection.ltr,
+                textDirection: context.locale == Locale('en', 'US')
+                    ? TextDirection.ltr
+                    : TextDirection.rtl,
                 child: InkWell(
                   onTap: () async {
                     Utils.token.isNotEmpty == true

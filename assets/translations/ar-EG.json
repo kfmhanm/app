@@ -1,6 +1,9 @@
 {
   "skip":"تخطي",
-
+  "Type your message":"اكتب رسالتك",
+  "enterAdName":"أدخل اسم الاعلان",
+  "Retry":"اعادة المحاولة",
+  "Go back":"العودة",
   "onboarding1": "إبحث عن عقارك المميز معنا",
 "onboarding2": "أسرع طريقة للإيجار أو البيع",
 "onboarding3": "منصتنا توفر لك جميع العقارات",
@@ -66,7 +69,7 @@
   "valid": {
     "requiredField": "هذا الحقل مطلوب",
     "requiredPhone": "الهاتف مطلوب",
-    "phoneDoseNotMatch": "الهاتف غير متطابق",
+    "phoneDoseNotMatch": "رقم جوال غير صحيح",
     "requiredEmail": "البريد الالكتروني مطلوب",
     "wrongEmailValidation": "البريد الالكتروني غير صحيح",
     "requiredPassword": "كلمة المرور مطلوبة",

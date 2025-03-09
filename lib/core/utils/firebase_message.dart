@@ -9,6 +9,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pride/core/Router/Router.dart';
+import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/general/nafath/nafath_cubit.dart';
 
 import 'package:pride/core/utils/utils.dart';
@@ -40,11 +41,15 @@ class FBMessging {
   static Future<void> firebaseMessagingBackgroundHandler(
       RemoteMessage message) async {
     //  handleNafathLogin(message);
-    print(message.data.toString(),);
-    log(message.data.toString(),name: "omar");
+    print(
+      message.data.toString(),
+    );
+    log(message.data.toString(), name: "omar");
     print(message.notification.toString());
-    print(message.notification?.title?.toString()??'no notificationtitke',);
-    print(message.notification?.body?.toString()??'no notificationtitke');
+    print(
+      message.notification?.title?.toString() ?? 'no notificationtitke',
+    );
+    print(message.notification?.body?.toString() ?? 'no notificationtitke');
     //print(message.notification?..toString()??'no notificationtitke');
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -55,17 +60,15 @@ class FBMessging {
       badge: true,
       sound: true,
     );
-if(message.notification?.title=="Nafath token"){
-  
-} if (message.data["type"] == "nafath") {
-  //  final appDocumentDir = await getApplicationDocumentsDirectory();
-    //Hive.init(appDocumentDir.path);
-   // final authBox = await Hive.openBox('data');
+    if (message.notification?.title == "Nafath token") {}
+    if (message.data["type"] == "nafath") {
+      //  final appDocumentDir = await getApplicationDocumentsDirectory();
+      //Hive.init(appDocumentDir.path);
+      // final authBox = await Hive.openBox('data');
 
-   
-    //  String token = message.data['message'];
+      //  String token = message.data['message'];
 
-   //   await authBox.put('nafathtoken', token);
+      //   await authBox.put('nafathtoken', token);
     }
   }
 
@@ -125,7 +128,9 @@ if(message.notification?.title=="Nafath token"){
     );
     FirebaseMessaging.instance.getInitialMessage().then((value) {
       log(value?.toMap().toString() ?? "noooooo", name: "getInitialMessage");
-      print(value?.toMap().toString() ?? "noooooo",);
+      print(
+        value?.toMap().toString() ?? "noooooo",
+      );
       if (value != null) {
         handleNafathLogin(value);
 
@@ -139,16 +144,18 @@ if(message.notification?.title=="Nafath token"){
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       handleNafathLogin(message);
       log(message.data.toString(), name: "onMessage Nocheck");
-      print(message.data.toString()+ "onMessage Nocheck");
+      print(message.data.toString() + "onMessage Nocheck");
+      print(Utils.room_id.toString() + "Utils.room_id");
       FCMNotification notificationModel = FCMNotification.fromMap(message.data);
       if (message.notification != null &&
-          notificationModel.model_id != Utils.room_id) {
+          (notificationModel.model_id != Utils.room_id &&
+              notificationModel.type == 'chat')) {
         log(message.data.toString(), name: "onMessageData");
         log(message.toMap().toString(), name: "onMessage");
         log(message.toMap().toString(), name: "onMessage");
-print(message.data.toString()+"onMessageData");
-        print(message.toMap().toString()+ "onMessage");
-        print(message.toMap().toString()+ "onMessage");
+        print(message.data.toString() + "onMessageData");
+        print(message.toMap().toString() + "onMessage");
+        print(message.toMap().toString() + "onMessage");
         plugin.show(
           payload: notificationModel.toJson(),
           message.notification.hashCode,
@@ -258,14 +265,20 @@ print(message.data.toString()+"onMessageData");
             () => Navigator.pushNamed(
               Utils.navigatorKey().currentContext!,
               Routes.ChatScreen,
-              arguments: {"roomId": notification.model_id},
+              arguments: {
+                "roomId": notification.model_id,
+                "adId": notification.ad_id
+              },
             ),
           );
         } else {
           Navigator.pushNamed(
             Utils.navigatorKey().currentContext!,
             Routes.ChatScreen,
-            arguments: {"roomId": notification.model_id},
+            arguments: {
+              "roomId": notification.model_id,
+              "adId": notification.ad_id
+            },
           );
         }
       } else {
@@ -287,20 +300,20 @@ print(message.data.toString()+"onMessageData");
           Navigator.pushNamed(
             Utils.navigatorKey().currentContext!,
             Routes.AdDetailsScreen,
-            arguments: notification.ad_id,
+            arguments: notification.ad_id.toInt(),
           );
         } else {
           Navigator.pushNamed(
             Utils.navigatorKey().currentContext!,
             Routes.AdDetailsScreen,
-            arguments: notification.ad_id,
+            arguments: notification.ad_id.toInt(),
           );
         }
       } else {
         Navigator.pushNamed(
           Utils.navigatorKey().currentContext!,
           Routes.AdDetailsScreen,
-          arguments: notification.ad_id,
+          arguments: notification.ad_id.toInt(),
         );
       }
     }

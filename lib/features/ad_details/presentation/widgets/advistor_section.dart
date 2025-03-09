@@ -36,7 +36,8 @@ class AdvisterSections extends StatelessWidget {
             child: Row(
               children: [
                 GestureDetector(
-                  onTap: () {
+                  onTap:
+                      null /* () {
                     Utils.token.isNotEmpty == true
                         ? Navigator.pushNamed(context, Routes.AdvistorScreen,
                             arguments: adDetailsModel.user?.id)
@@ -44,13 +45,26 @@ class AdvisterSections extends StatelessWidget {
                             Utils.navigatorKey().currentContext!,
                             child: const LoginDialog(),
                             backgroundColor: Colors.white);
-                  },
+                  } */
+                  ,
                   child: Row(
                     children: [
-                      ProfileImage(
-                        height: 25,
-                        image: adDetailsModel.user?.logo,
-                        color: context.primaryColor,
+                      GestureDetector(
+                        onTap: () {
+                          Utils.token.isNotEmpty == true
+                              ? Navigator.pushNamed(
+                                  context, Routes.AdvistorScreen,
+                                  arguments: adDetailsModel.user?.id)
+                              : Alerts.bottomSheet(
+                                  Utils.navigatorKey().currentContext!,
+                                  child: const LoginDialog(),
+                                  backgroundColor: Colors.white);
+                        },
+                        child: ProfileImage(
+                          height: 25,
+                          image: adDetailsModel.user?.logo,
+                          color: context.primaryColor,
+                        ),
                       ),
                       16.pw,
                       Column(
@@ -93,15 +107,10 @@ class AdvisterSections extends StatelessWidget {
                                 color: Color(0xff818181),
                               ),
                               4.pw,
-                              CustomText(
-                                LocaleKeys.my_ads_keys_rating.tr(),
-                                color: Color(0xff818181),
-                                decoration: TextDecoration.underline,
-                              ),
-                            ],
-                          ).onTap(() {
-                            Utils.token.isNotEmpty == true
-                                ? () {
+                              GestureDetector(
+                                onTap: () async {
+                                  print(231);
+                                  if (Utils.token.isNotEmpty == true) {
                                     if (Utils.userModel.id !=
                                             adDetailsModel.user?.id &&
                                         Utils.userModel.token != null)
@@ -111,12 +120,24 @@ class AdvisterSections extends StatelessWidget {
                                         adId: adDetailsModel.id,
                                         onSucess: onSucess,
                                       );
+                                  } else {
+                                    Alerts.bottomSheet(
+                                        Utils.navigatorKey().currentContext!,
+                                        child: const LoginDialog(),
+                                        backgroundColor: Colors.white);
                                   }
-                                : Alerts.bottomSheet(
-                                    Utils.navigatorKey().currentContext!,
-                                    child: const LoginDialog(),
-                                    backgroundColor: Colors.white);
-                          }),
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: CustomText(
+                                    LocaleKeys.my_ads_keys_rating.tr(),
+                                    color: Color(0xff818181),
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                           // Row(children: [
 
                           // ]),

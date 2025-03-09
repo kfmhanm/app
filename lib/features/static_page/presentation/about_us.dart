@@ -27,7 +27,10 @@ class _AboutUSState extends State<AboutUS> {
 
   Future getAboutUs() async {
     final response = await locator<StaticPageRepository>().aboutUs(widget.type);
-    title = response?["title"] ?? "";
+    if (response == null) {
+      return;
+    }
+    title = response["title"] ?? "";
     setState(() {});
 
     return response;

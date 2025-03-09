@@ -181,6 +181,8 @@ class _AdDetailsScreenState extends State<AdDetailsScreen> {
                                         "adId": adDetailsModel.id?.toString(),
                                         "userId":
                                             adDetailsModel.user?.id?.toString(),
+                                        "username": adDetailsModel.user?.name
+                                            ?.toString(),
                                       })
                                     : Alerts.bottomSheet(
                                         Utils.navigatorKey().currentContext!,

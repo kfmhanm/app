@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/utils/extentions.dart';
@@ -5,7 +6,12 @@ import 'button_widget.dart';
 import 'customtext.dart';
 
 class LoadingAndError extends StatelessWidget {
-  const LoadingAndError({Key? key, required this.isError, required this.isLoading, this.function, required this.child})
+  const LoadingAndError(
+      {Key? key,
+      required this.isError,
+      required this.isLoading,
+      this.function,
+      required this.child})
       : super(key: key);
   final bool isError;
   final bool isLoading;
@@ -44,7 +50,7 @@ class LoadingAndError extends StatelessWidget {
                       // Navigator.pop(context);
                     },
                     child: CustomText(
-                      function != null ? "Retry" : "Go back",
+                      function != null ? "Retry".tr() : "Go back".tr(),
                       color: Colors.white,
                       fontSize: 18,
                       weight: FontWeight.w500,

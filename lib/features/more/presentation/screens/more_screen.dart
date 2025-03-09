@@ -81,35 +81,35 @@ class _MoreScreenState extends State<MoreScreen> {
                           backgroundColor: context.background);
                     },
                   ),
-                  ProfileItem(
-                    title: LocaleKeys.settings_commission_account,
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.aboutUS,
-                          arguments: AboutUsArgs(
-                              title: LocaleKeys.settings_commission_account,
-                              type: "commetions"));
-                    },
-                  ),
-                  ProfileItem(
-                    title: LocaleKeys.settings_real_estate_broker_membership,
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.aboutUS,
-                          arguments: AboutUsArgs(
-                              title: LocaleKeys
-                                  .settings_real_estate_broker_membership,
-                              type: "borker_membership"));
-                    },
-                  ),
-                  ProfileItem(
-                    title: LocaleKeys.settings_real_estate_company_membership,
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.aboutUS,
-                          arguments: AboutUsArgs(
-                              title: LocaleKeys
-                                  .settings_real_estate_company_membership,
-                              type: "membership"));
-                    },
-                  ),
+                  // ProfileItem(
+                  //   title: LocaleKeys.settings_commission_account,
+                  //   onTap: () {
+                  //     Navigator.pushNamed(context, Routes.aboutUS,
+                  //         arguments: AboutUsArgs(
+                  //             title: LocaleKeys.settings_commission_account,
+                  //             type: "commetions"));
+                  //   },
+                  // ),
+                  // ProfileItem(
+                  //   title: LocaleKeys.settings_real_estate_broker_membership,
+                  //   onTap: () {
+                  //     Navigator.pushNamed(context, Routes.aboutUS,
+                  //         arguments: AboutUsArgs(
+                  //             title: LocaleKeys
+                  //                 .settings_real_estate_broker_membership,
+                  //             type: "borker_membership"));
+                  //   },
+                  // ),
+                  // ProfileItem(
+                  //   title: LocaleKeys.settings_real_estate_company_membership,
+                  //   onTap: () {
+                  //     Navigator.pushNamed(context, Routes.aboutUS,
+                  //         arguments: AboutUsArgs(
+                  //             title: LocaleKeys
+                  //                 .settings_real_estate_company_membership,
+                  //             type: "membership"));
+                  //   },
+                  // ),
                   TitleProfile(title: LocaleKeys.settings_help, icon: "info"),
                   ProfileItem(
                     title: LocaleKeys.settings_contact_us,

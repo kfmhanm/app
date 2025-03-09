@@ -221,6 +221,7 @@ class RouteGenerator {
                 roomId: (routeSettings.arguments as Map)["roomId"],
                 adId: (routeSettings.arguments as Map)["adId"],
                 userId: (routeSettings.arguments as Map)["userId"],
+                username: (routeSettings.arguments as Map)["username"],
               );
             });
 

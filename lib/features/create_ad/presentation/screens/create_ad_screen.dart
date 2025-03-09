@@ -167,7 +167,8 @@ class _CreateAdScreenState extends State<CreateAdScreen>
                   TextFormFieldWidget(
                     controller: nameController,
                     type: TextInputType.name,
-                    hintText: LocaleKeys.my_ads_keys_set_ad_title.tr(),
+                    hintText: "enterAdName".tr(),
+                    // hintText: LocaleKeys.my_ads_keys_set_ad_title.tr(),
                     password: false,
                     validator: (v) => Utils.valid.defaultValidation(v),
                     onSaved: (value) => cubit.request.title = value,

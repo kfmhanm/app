@@ -146,7 +146,7 @@ class MyMedia {
     try {
       final image = await _picker.pickImage(
         source: ImageSource.gallery,
-        imageQuality: 100,
+        imageQuality: 20,
         maxWidth: 1080,
       );
       return image != null ? File(image.path) : null;
@@ -163,7 +163,7 @@ class MyMedia {
   Future<File?> pickImageFromCamera() async {
     try {
       final image = await _picker.pickImage(
-          source: ImageSource.camera, imageQuality: 100, maxWidth: 1080);
+          source: ImageSource.camera, imageQuality: 20, maxWidth: 1080);
       return image != null ? File(image.path) : null;
     } catch (e) {
       print(e);

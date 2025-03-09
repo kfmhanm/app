@@ -24,12 +24,12 @@ class StaticPageCubit extends Cubit<StaticPageStates> {
   }
 
   // about us
-  aboutUs(String type) async {
-    final respose = await staticPageRepository.aboutUs(type);
-    if (respose != null) {
-      return respose;
-    } else {}
-  }
+  // aboutUs(String type) async {
+  //   final respose = await staticPageRepository.aboutUs(type);
+  //   if (respose != null) {
+  //     return respose;
+  //   } else {}
+  // }
 
   @override
   void emit(StaticPageStates state) {

@@ -8,7 +8,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
 // import 'package:pusher_client/pusher_client.dart';
 import '../../../core/utils/Locator.dart';
-import '../../../core/utils/Utils.dart';
+import '../../../core/utils/utils.dart';
 import '../../home/domain/model/ads_model.dart';
 import '../domain/model/chats_model.dart';
 import '../domain/repository/repository.dart';
@@ -90,6 +90,7 @@ class ChatsCubit extends Cubit<ChatsStates> {
     if (res != null) {
       if (roomId?.isEmpty == true || roomId == null) {
         roomId = res["room_id"]?.toString() ?? "";
+        Utils.room_id = roomId ?? "";
         addPageLisnterChat(roomId ?? "", adid);
         initPusher(channelName: roomId ?? "");
       }

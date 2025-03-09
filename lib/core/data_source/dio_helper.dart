@@ -26,7 +26,7 @@ class DioService {
           receiveDataWhenStatusError: true,
           connectTimeout: const Duration(milliseconds: 60000),
           receiveTimeout: const Duration(milliseconds: 30000),
-          sendTimeout: const Duration(milliseconds: 60000)),
+          sendTimeout: const Duration(milliseconds: 100000)),
     )..interceptors.add(PrettyDioLogger(
         requestHeader: true,
         requestBody: true,
@@ -131,7 +131,7 @@ class DioService {
     Map<String, dynamic>? query,
     bool loading = false,
   }) async {
-    log("---------------${Utils.token.isNotEmpty}  ${Utils.token}");
+    // log("---------------${Utils.token.isNotEmpty}  ${Utils.token}");
     if (Utils.token.isNotEmpty) {
       _mydio.options.headers["Authorization"] = 'Bearer ${Utils.token}';
     } else {
@@ -158,7 +158,7 @@ class DioService {
   FutureOr<ApiResponse> getDioException({
     required DioException e,
   }) async {
-    log("---------------autherrr");
+    // log("---------------autherrr");
     MyLoading.dismis();
 
     if (DioExceptionType.receiveTimeout == e.type ||

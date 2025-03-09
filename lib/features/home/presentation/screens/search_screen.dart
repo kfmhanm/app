@@ -88,6 +88,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
                             width: 120,
@@ -172,15 +173,15 @@ class _SearchScreenState extends State<SearchScreen> {
                                 )),
                             child: Container(
                               width: 150,
-                              margin: EdgeInsets.only(bottom: 30),
+                              margin: EdgeInsets.only(bottom: 25),
                               padding: EdgeInsets.symmetric(horizontal: 16),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                  color: LightThemeColors.textHint,
-                                ),
-                              ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: LightThemeColors.textHint,
+                                  ),
+                                  color: Colors.white),
                               child: CustomText(
                                 LocaleKeys.my_ads_keys_set_price.tr(),
                                 color: LightThemeColors.textHint,
@@ -291,15 +292,15 @@ class _SearchScreenState extends State<SearchScreen> {
                             },
                             child: Container(
                               width: 150,
-                              margin: EdgeInsets.only(bottom: 30),
+                              margin: EdgeInsets.only(bottom: 25),
                               padding: EdgeInsets.symmetric(horizontal: 16),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                  color: LightThemeColors.textHint,
-                                ),
-                              ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: LightThemeColors.textHint,
+                                  ),
+                                  color: Colors.white),
                               child: CustomText(
                                 LocaleKeys.home_keys_the_rooms.tr(),
                                 color: LightThemeColors.textHint,
