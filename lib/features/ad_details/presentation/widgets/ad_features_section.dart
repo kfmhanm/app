@@ -49,9 +49,18 @@ class adFeaturesSection extends StatelessWidget {
                           color: LightThemeColors.textHint,
                         ),
                       ),
-                      CustomText(
-                        item?.value ?? '',
-                        weight: FontWeight.w700,
+                      Row(
+                        children: [
+                          CustomText(
+                            item?.value ?? '',
+                            weight: FontWeight.w700,
+                          ),
+                          4.pw,
+                          CustomText(
+                            item?.unit ?? '',
+                            color: LightThemeColors.textHint,
+                          ),
+                        ],
                       ),
                     ],
                   ),

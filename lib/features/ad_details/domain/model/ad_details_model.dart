@@ -183,18 +183,21 @@ class CategoryFeatures {
   String? type;
   bool? isRequired;
   String? value;
+  String? unit;
 
   CategoryFeatures(
       {this.id,
       this.title,
       this.image,
       this.type,
+      this.unit,
       this.isRequired,
       this.value});
 
   CategoryFeatures.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
+    unit = json['unit']?.toString() ?? "";
     image = json['image'];
     type = json['type'];
     isRequired = json['is_required'];

@@ -58,9 +58,18 @@ class CategoryFeaturesItem extends StatelessWidget {
           ),
         ),
         4.pw,
-        CustomText(
-          item?.value ?? "",
-          color: context.secondaryColor,
+        Row(
+          children: [
+            CustomText(
+              item?.value ?? "",
+              color: context.secondaryColor,
+            ),
+            4.pw,
+            CustomText(
+              item?.unit ?? "",
+              color: LightThemeColors.textHint,
+            ),
+          ],
         ),
       ],
     );

@@ -72,5 +72,7 @@
 	<string>we don't use microphone permission</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need this to choose user profile image</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 </dict>
 </plist>
