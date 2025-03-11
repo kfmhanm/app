@@ -303,6 +303,7 @@
 "verify" : "Verify",
 "yearly" : "Yearly",
 "monthly" : "Monthly",
+"user unavailable" : "User is unavailable",
 "enterUserData" : "Enter personal Id",
 "checkEmail" : "Check your email",
 "selectlocation" : "Select Location",

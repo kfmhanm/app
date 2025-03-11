@@ -15,7 +15,9 @@ import 'package:pride/core/general/nafath/nafath_cubit.dart';
 import 'package:pride/core/utils/utils.dart';
 import 'package:pride/features/auth/presentation/screens/login/login_screen.dart';
 
+import '../../features/splash/domain/repository/splash_repository.dart';
 import '../../firebase_options.dart';
+import 'Locator.dart';
 
 class FBMessging {
   static AndroidNotificationChannel androidChannel() {
@@ -147,15 +149,28 @@ class FBMessging {
       print(message.data.toString() + "onMessage Nocheck");
       print(Utils.room_id.toString() + "Utils.room_id");
       FCMNotification notificationModel = FCMNotification.fromMap(message.data);
-      if (message.notification != null &&
-          (notificationModel.model_id != Utils.room_id &&
-              notificationModel.type == 'chat')) {
+      if (message.notification != null) {
         log(message.data.toString(), name: "onMessageData");
         log(message.toMap().toString(), name: "onMessage");
         log(message.toMap().toString(), name: "onMessage");
         print(message.data.toString() + "onMessageData");
         print(message.toMap().toString() + "onMessage");
         print(message.toMap().toString() + "onMessage");
+        if (notificationModel.type == "reject_broker") {
+          locator<SplashRepository>().getProfileRequest(true);
+          return;
+        }
+        if (notificationModel.type == "account_deactivated") {
+          Utils.deleteUserData();
+          Navigator.of(Utils.navigatorKey().currentContext!)
+              .pushNamedAndRemoveUntil(
+            Routes.LoginScreen,
+            (route) => false,
+          );
+          return;
+        }
+        if ((notificationModel.model_id == Utils.room_id &&
+            notificationModel.type == 'chat')) return;
         plugin.show(
           payload: notificationModel.toJson(),
           message.notification.hashCode,
@@ -253,6 +268,10 @@ class FBMessging {
     print("sssss");
     log(notification.toMap().toString(), name: "omar");
 
+    if (notification.type == "reject_broker") {
+      locator<SplashRepository>().getProfileRequest(true);
+      return;
+    }
     if (notification.type == "chat") {
       if (appIsopened) {
         if (RouteGenerator.currentRoute == Routes.ChatScreen) {
@@ -268,7 +287,7 @@ class FBMessging {
               arguments: {
                 "roomId": notification.model_id,
                 "adId": notification.ad_id
-              },
+              }..removeWhere((key, value) => value == null),
             ),
           );
         } else {
@@ -278,7 +297,7 @@ class FBMessging {
             arguments: {
               "roomId": notification.model_id,
               "adId": notification.ad_id
-            },
+            }..removeWhere((key, value) => value == null),
           );
         }
       } else {
@@ -290,7 +309,10 @@ class FBMessging {
         Navigator.pushNamed(
           Utils.navigatorKey().currentContext!,
           Routes.ChatScreen,
-          arguments: {"roomId": notification.model_id},
+          arguments: {
+            "roomId": notification.model_id,
+            "adId": notification.ad_id
+          }..removeWhere((key, value) => value == null),
         );
       }
     } else if (notification.type == "ad") {

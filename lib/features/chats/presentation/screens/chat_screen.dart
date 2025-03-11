@@ -218,55 +218,61 @@ class _ChatScreenState extends State<ChatScreen> {
                               ),
                             ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(16).copyWith(bottom: 5),
-                      child: TextFormFieldWidget(
-                        controller: messageField,
-                        onFieldSubmitted: (value) async {
-                          await sendMessage(
-                            cubit,
-                          );
-                          messageField.clear();
-                        },
-                        hintText: 'Type your message'.tr(),
-                        password: false,
-                        maxLines: 30,
-                        minLines: 1,
-                        borderRadius: 10,
-                        suffixIcon: SizedBox(
-                          width: 120,
-                          child: Row(
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  chooseMediaSheet(context, cubit);
-                                },
-                                icon: const Icon(
-                                  Icons.attach_file,
-                                  color: Color(0xff9B9B9B),
+                    cubit.isDeleted == true
+                        ? CustomText(
+                            "user unavailable".tr(),
+                          ).center()
+                        : Padding(
+                            padding:
+                                const EdgeInsets.all(16).copyWith(bottom: 5),
+                            child: TextFormFieldWidget(
+                              controller: messageField,
+                              onFieldSubmitted: (value) async {
+                                await sendMessage(
+                                  cubit,
+                                );
+                                messageField.clear();
+                              },
+                              hintText: 'Type your message'.tr(),
+                              password: false,
+                              maxLines: 30,
+                              minLines: 1,
+                              borderRadius: 10,
+                              suffixIcon: SizedBox(
+                                width: 120,
+                                child: Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        chooseMediaSheet(context, cubit);
+                                      },
+                                      icon: const Icon(
+                                        Icons.attach_file,
+                                        color: Color(0xff9B9B9B),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () async {
+                                        await sendMessage(
+                                          cubit,
+                                        );
+                                        messageField.clear();
+                                      },
+                                      child: CustomText(
+                                        "send".tr(),
+                                        color: Colors.white,
+                                      ).setContainerToView(
+                                          color: Color(0xff27AD38),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 17.1, vertical: 14)),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              GestureDetector(
-                                onTap: () async {
-                                  await sendMessage(
-                                    cubit,
-                                  );
-                                  messageField.clear();
-                                },
-                                child: CustomText(
-                                  "send".tr(),
-                                  color: Colors.white,
-                                ).setContainerToView(
-                                    color: Color(0xff27AD38),
-                                    borderRadius: BorderRadius.circular(10),
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 17.1, vertical: 14)),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ),

@@ -100,9 +100,11 @@ class PaginationChat {
   List<MessageModel>? messages;
   User? other;
   int? page;
-  PaginationChat({this.messages});
+  bool? isDeleted;
+  PaginationChat({this.messages, this.isDeleted});
   PaginationChat.fromJson(Map<String, dynamic> json) {
     page = json['pagination']['lastPage'];
+    isDeleted = json['data']['is_deleted'];
 
     if (json['data']["messages"] != null) {
       messages = <MessageModel>[];

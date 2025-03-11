@@ -1,4 +1,5 @@
 import '../../../../core/data_source/dio_helper.dart';
+import '../../../../core/utils/utils.dart';
 import '../model/splash_model.dart';
 
 //put it in locators locator.registerLazySingleton(() => SplashRepository(locator<DioService>()));
@@ -6,11 +7,14 @@ import '../model/splash_model.dart';
 class SplashRepository {
   final DioService dioService;
   SplashRepository(this.dioService);
-  Future getProfileRequest() async {
+  Future getProfileRequest([bool saveHive = false]) async {
     final response = await dioService.getData(
       url: "profile",
     );
     if (response.isError == false) {
+      if (saveHive) {
+        await Utils.saveUserInHive(response.response?.data['data']);
+      }
       return response.response?.data['data'];
     } else {
       return null;

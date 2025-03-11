@@ -35,6 +35,8 @@ class ChatsCubit extends Cubit<ChatsStates> {
     }
   }
 
+  bool isDeleted = false;
+
   getMessagesChat({required int page, required String id, String? adId}) async {
     if (page == 1) {
       emit(ChatLoadingState());
@@ -50,10 +52,12 @@ class ChatsCubit extends Cubit<ChatsStates> {
 
     if (res != null) {
       if (page == 1) {
+        isDeleted = res.isDeleted ?? false;
         user = res.other;
         currentUserId = res.other?.id?.toString() ?? "";
       }
       var isLastPage = res.page == page;
+
       List<MessageModel>? messages = res.messages;
       if (isLastPage) {
         // stop
@@ -159,8 +163,10 @@ class ChatsCubit extends Cubit<ChatsStates> {
   //     cluster: "eu",
   //   ),
   // );
+  String channelName = "";
 
   initPusher({required String channelName}) async {
+    this.channelName = channelName;
     try {
       await pusher.init(
         apiKey: "eb236294d47f9bae0f2e",
@@ -214,6 +220,7 @@ class ChatsCubit extends Cubit<ChatsStates> {
     if (pusher.connectionState == ConnectionState.done ||
         pusher.connectionState == ConnectionState.active) {
       pusher.disconnect();
+      pusher.unsubscribe(channelName: "Chat-$channelName");
     }
     adLocationController.dispose();
     return super.close();
