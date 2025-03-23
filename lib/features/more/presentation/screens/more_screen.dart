@@ -73,6 +73,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       Navigator.pushNamed(context, Routes.FavouriteScreen);
                     },
                   ),
+
                   ProfileItem(
                     title: 'language',
                     onTap: () {
@@ -115,6 +116,12 @@ class _MoreScreenState extends State<MoreScreen> {
                     title: LocaleKeys.settings_contact_us,
                     onTap: () {
                       Navigator.pushNamed(context, Routes.ContactUs);
+                    },
+                  ),
+                  ProfileItem(
+                    title: LocaleKeys.settings_complain,
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.complainScreen);
                     },
                   ),
                   // ProfileItem(

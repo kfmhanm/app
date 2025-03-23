@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pride/features/ad_details/domain/model/ad_details_model.dart';
+import 'package:pride/features/static_page/presentation/complain.dart';
 import '../../features/ad_details/presentation/screens/ad_comments_screen.dart';
 import '../../features/ad_details/presentation/screens/ad_details_screen.dart';
 import '../../features/ad_details/presentation/screens/advistor_screen.dart';
@@ -60,6 +61,7 @@ class Routes {
   static const String ChangePassScreen = "ChangePassScreen";
   static const String ProfileScreen = "ProfileScreen";
   static const String aboutUS = "aboutUS";
+  static const String complainScreen = "ComplainScreen";
   static const String FavouriteScreen = "FavouriteScreen";
   static const String SearchScreen = "SearchScreen";
   static const String MapsScreen = "MapsScreen";
@@ -86,6 +88,12 @@ class RouteGenerator {
                 title: (routeSettings.arguments as AboutUsArgs).title,
                 type: (routeSettings.arguments as AboutUsArgs).type,
               );
+            });
+      case Routes.complainScreen:
+        return CupertinoPageRoute(
+            settings: routeSettings,
+            builder: (_) {
+              return const ComplainScreen();
             });
       case Routes.OnboardingScreen:
         return CupertinoPageRoute(

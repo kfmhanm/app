@@ -22,7 +22,15 @@ class StaticPageCubit extends Cubit<StaticPageStates> {
       ));
     } else {}
   }
-
+  complain({required ContactUsRequest contactUsRequest}) async {
+    final respose = await staticPageRepository.complain(
+        contactUsRequest: contactUsRequest);
+    if (respose != null) {
+      emit(ContactUsSendSuccess(
+        message: respose["message"],
+      ));
+    } else {}
+  }
   // about us
   // aboutUs(String type) async {
   //   final respose = await staticPageRepository.aboutUs(type);

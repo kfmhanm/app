@@ -15,14 +15,14 @@ import '../cubit/cubit.dart';
 import '../cubit/states.dart';
 import '../domain/request/static_page_request.dart';
 
-class ContactUs extends StatefulWidget {
-  const ContactUs({Key? key}) : super(key: key);
+class ComplainScreen extends StatefulWidget {
+  const ComplainScreen({Key? key}) : super(key: key);
 
   @override
-  State<ContactUs> createState() => _ContactUsState();
+  State<ComplainScreen> createState() => _ComplainScreenState();
 }
 
-class _ContactUsState extends State<ContactUs> {
+class _ComplainScreenState extends State<ComplainScreen> {
   ContactUsRequest contactUsRequest = ContactUsRequest();
   // final TextEditingController imageController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -39,7 +39,7 @@ class _ContactUsState extends State<ContactUs> {
       }, builder: (context, state) {
         return Scaffold(
           appBar: DefaultAppBar(
-            titleAppBar: LocaleKeys.settings_contact_us.tr(),
+            titleAppBar: LocaleKeys.settings_complain.tr(),
           ),
           body: SingleChildScrollView(
             child: Padding(
@@ -56,7 +56,6 @@ class _ContactUsState extends State<ContactUs> {
                       password: false,
                       validator: (v) => Utils.valid.defaultValidation(v),
                     ),
-                    
                     TextFormFieldWidget(
                       type: TextInputType.phone,
                       hintText: LocaleKeys.auth_hint_phone.tr(),
@@ -80,13 +79,13 @@ class _ContactUsState extends State<ContactUs> {
                       height: 20,
                     ),
                     ButtonWidget(
-                      title: LocaleKeys.send.tr(),
+                      title: LocaleKeys.settings_send_complain.tr(),
                       // gradient: AppColors.gradientColor,
                       onTap: () async {
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
                           await BlocProvider.of<StaticPageCubit>(context)
-                              .contactUs(contactUsRequest: contactUsRequest);
+                              .complain(contactUsRequest: contactUsRequest);
                         }
                       },
                     ),

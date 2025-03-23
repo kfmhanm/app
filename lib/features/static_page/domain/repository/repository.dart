@@ -13,6 +13,15 @@ class StaticPageRepository {
     }
   }
 
+  complain({required ContactUsRequest contactUsRequest}) async {
+    final body = await contactUsRequest.complainToJson();
+    final respose = await dioService.postData(
+        url: "/contactus", isForm: true, loading: true, body: body);
+    if (respose.isError == false) {
+      return respose.response?.data;
+    }
+  }
+
   //////////////
   Future<Map<String, dynamic>?> aboutUs(String type) async {
     final respose = await dioService.getData(
