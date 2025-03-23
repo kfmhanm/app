@@ -40,4 +40,31 @@ class ContactUsRequest {
 
     return result;
   }
+
+  Future<Map<String, dynamic>> complainToJson() async {
+    final result = <String, dynamic>{
+      'type': 'claim',
+    };
+
+    if (name != null) {
+      result.addAll({'name': name});
+    }
+    // if (email != null) {
+    //   result.addAll({'email': email});
+    // }
+    if (phone != null) {
+      result.addAll({'mobile': phone});
+    }
+    // if (subject != null) {
+    //   result.addAll({'subject': subject});
+    // }
+    if (message != null) {
+      result.addAll({'message': message});
+    }
+    // if (image != null) {
+    //   result.addAll({'image': MultipartFile.fromFileSync(image?.path ?? "")});
+    // }
+
+    return result;
+  }
 }

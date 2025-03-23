@@ -1,6 +1,17 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+// ignore_for_file: constant_identifier_names
+
+abstract class LocaleKeys {
+  static const skip = 'skip';
+  static const Type_your_message = 'Type your message';
+  static const enterAdName = 'enterAdName';
+  static const Retry = 'Retry';
+  static const Go_back = 'Go back';
+  static const onboarding1 = 'onboarding1';
+  static const onboarding2 = 'onboarding2';
+  static const onboarding3 = 'onboarding3';
+  static const limit_image = 'limit_image';
   static const onboarding_title1 = 'onboarding.title1';
   static const onboarding_subTittle1 = 'onboarding.subTittle1';
   static const onboarding_title2 = 'onboarding.title2';
@@ -15,7 +26,8 @@ abstract class  LocaleKeys {
   static const auth_description_login = 'auth.description_login';
   static const auth_hint_phone = 'auth.hint_phone';
   static const auth_hint_password = 'auth.hint_password';
-  static const auth_do_you_forget_your_password = 'auth.do_you_forget_your_password';
+  static const auth_do_you_forget_your_password =
+      'auth.do_you_forget_your_password';
   static const auth_enter = 'auth.enter';
   static const auth_havnot_account = 'auth.havnot_account';
   static const auth_register_new_acc = 'auth.register_new_acc';
@@ -69,7 +81,8 @@ abstract class  LocaleKeys {
   static const home_keys_ads = 'home_keys.ads';
   static const home_keys_requests = 'home_keys.requests';
   static const home_keys_my_orders = 'home_keys.my_orders';
-  static const home_keys_main_and_sub_categories_of_real_estate = 'home_keys.main_and_sub_categories_of_real_estate';
+  static const home_keys_main_and_sub_categories_of_real_estate =
+      'home_keys.main_and_sub_categories_of_real_estate';
   static const home_keys_featured = 'home_keys.featured';
   static const home_keys_beds = 'home_keys.beds';
   static const home_keys_rooms = 'home_keys.rooms';
@@ -93,37 +106,53 @@ abstract class  LocaleKeys {
   static const home_keys_maximum_price = 'home_keys.maximum_price';
   static const home_keys_clear = 'home_keys.clear';
   static const home_keys_confirm = 'home_keys.confirm';
-  static const home_keys_search_for_what_you_want = 'home_keys.search_for_what_you_want';
+  static const home_keys_search_for_what_you_want =
+      'home_keys.search_for_what_you_want';
   static const home_keys = 'home_keys';
-  static const notifications_keys_notifications = 'notifications_keys.notifications';
-  static const notifications_keys_no_notifications_yet = 'notifications_keys.no_notifications_yet';
-  static const notifications_keys_no_notifications = 'notifications_keys.no_notifications';
-  static const notifications_keys_notification_number = 'notifications_keys.notification_number';
-  static const notifications_keys_delete_notification = 'notifications_keys.delete_notification';
-  static const notifications_keys_delete_notification_confirmation = 'notifications_keys.delete_notification_confirmation';
-  static const notifications_keys_delete_all_notifications = 'notifications_keys.delete_all_notifications';
-  static const notifications_keys_delete_all_notifications_confirmation = 'notifications_keys.delete_all_notifications_confirmation';
+  static const notifications_keys_notifications =
+      'notifications_keys.notifications';
+  static const notifications_keys_no_notifications_yet =
+      'notifications_keys.no_notifications_yet';
+  static const notifications_keys_no_notifications =
+      'notifications_keys.no_notifications';
+  static const notifications_keys_notification_number =
+      'notifications_keys.notification_number';
+  static const notifications_keys_delete_notification =
+      'notifications_keys.delete_notification';
+  static const notifications_keys_delete_notification_confirmation =
+      'notifications_keys.delete_notification_confirmation';
+  static const notifications_keys_delete_all_notifications =
+      'notifications_keys.delete_all_notifications';
+  static const notifications_keys_delete_all_notifications_confirmation =
+      'notifications_keys.delete_all_notifications_confirmation';
   static const notifications_keys = 'notifications_keys';
   static const my_ads_keys_highlight_ad = 'my_ads_keys.highlight_ad';
-  static const my_ads_keys_highlight_ad_description = 'my_ads_keys.highlight_ad_description';
+  static const my_ads_keys_highlight_ad_description =
+      'my_ads_keys.highlight_ad_description';
   static const my_ads_keys_highlight = 'my_ads_keys.highlight';
   static const my_ads_keys_number_days = 'my_ads_keys.number_days';
   static const my_ads_keys_delete_ad = 'my_ads_keys.delete_ad';
   static const my_ads_keys_delete = 'my_ads_keys.delete';
-  static const my_ads_keys_delete_ad_confirmation = 'my_ads_keys.delete_ad_confirmation';
+  static const my_ads_keys_delete_ad_confirmation =
+      'my_ads_keys.delete_ad_confirmation';
   static const my_ads_keys_delete_all_ads = 'my_ads_keys.delete_all_ads';
-  static const my_ads_keys_delete_all_ads_confirmation = 'my_ads_keys.delete_all_ads_confirmation';
+  static const my_ads_keys_delete_all_ads_confirmation =
+      'my_ads_keys.delete_all_ads_confirmation';
   static const my_ads_keys_set_ad_title = 'my_ads_keys.set_ad_title';
   static const my_ads_keys_set_category = 'my_ads_keys.set_category';
   static const my_ads_keys_set_sub_category = 'my_ads_keys.set_sub_category';
   static const my_ads_keys_set_price = 'my_ads_keys.set_price';
   static const my_ads_keys_optional = 'my_ads_keys.optional';
-  static const my_ads_keys_set_ad_title_again = 'my_ads_keys.set_ad_title_again';
-  static const my_ads_keys_set_property_title = 'my_ads_keys.set_property_title';
+  static const my_ads_keys_set_ad_title_again =
+      'my_ads_keys.set_ad_title_again';
+  static const my_ads_keys_set_property_title =
+      'my_ads_keys.set_property_title';
   static const my_ads_keys_ad_text = 'my_ads_keys.ad_text';
   static const my_ads_keys_show_phone_number = 'my_ads_keys.show_phone_number';
-  static const my_ads_keys_commit_to_pay_commission = 'my_ads_keys.commit_to_pay_commission';
-  static const my_ads_keys_attach_photos_or_videos = 'my_ads_keys.attach_photos_or_videos';
+  static const my_ads_keys_commit_to_pay_commission =
+      'my_ads_keys.commit_to_pay_commission';
+  static const my_ads_keys_attach_photos_or_videos =
+      'my_ads_keys.attach_photos_or_videos';
   static const my_ads_keys_add = 'my_ads_keys.add';
   static const my_ads_keys_add_ad = 'my_ads_keys.add_ad';
   static const my_ads_keys_ad_details = 'my_ads_keys.ad_details';
@@ -183,7 +212,8 @@ abstract class  LocaleKeys {
   static const logout = 'logout';
   static const add_new_address = 'add_new_address';
   static const show_details = 'show_details';
-  static const do_you_want_to_delete_your_account = 'do_you_want_to_delete_your_account';
+  static const do_you_want_to_delete_your_account =
+      'do_you_want_to_delete_your_account';
   static const yes = 'yes';
   static const no = 'no';
   static const restore = 'restore';
@@ -216,7 +246,8 @@ abstract class  LocaleKeys {
   static const settings_change_pass = 'settings.change_pass';
   static const settings_change_pass_desc = 'settings.change_pass_desc';
   static const settings_current_pass = 'settings.current_pass';
-  static const settings_pick_image_from_gallery = 'settings.pick_image_from_gallery';
+  static const settings_pick_image_from_gallery =
+      'settings.pick_image_from_gallery';
   static const settings_remove_current_image = 'settings.remove_current_image';
   static const settings_ignore_edit = 'settings.ignore_edit';
   static const settings_ignore_edit_desc = 'settings.ignore_edit_desc';
@@ -231,24 +262,32 @@ abstract class  LocaleKeys {
   static const settings_submit = 'settings.submit';
   static const settings_share_account = 'settings.share_account';
   static const settings_commission_account = 'settings.commission_account';
-  static const settings_real_estate_broker_membership = 'settings.real_estate_broker_membership';
-  static const settings_real_estate_company_membership = 'settings.real_estate_company_membership';
+  static const settings_real_estate_broker_membership =
+      'settings.real_estate_broker_membership';
+  static const settings_real_estate_company_membership =
+      'settings.real_estate_company_membership';
   static const settings_help = 'settings.help';
   static const settings_contact_us = 'settings.contact_us';
+  static const settings_complaint = 'settings.complaint';
+  static const settings_send_complain = 'settings.send_complain';
   static const settings_app_policy = 'settings.app_policy';
   static const settings_app_usage_agreement = 'settings.app_usage_agreement';
-  static const settings_follow_us_on_social_media = 'settings.follow_us_on_social_media';
+  static const settings_follow_us_on_social_media =
+      'settings.follow_us_on_social_media';
   static const settings_profile = 'settings.profile';
   static const settings_edit_and_save = 'settings.edit_and_save';
   static const settings_message_text = 'settings.message_text';
-  static const settings_confirm_delete_account = 'settings.confirm_delete_account';
+  static const settings_confirm_delete_account =
+      'settings.confirm_delete_account';
   static const settings_confirm_logout = 'settings.confirm_logout';
   static const settings_contact_social = 'settings.contact_social';
   static const settings = 'settings';
   static const chat = 'chat';
   static const upgrade_membership = 'upgrade_membership';
-  static const upgrade_membership_as_real_estate_broker = 'upgrade_membership_as_real_estate_broker';
-  static const please_attach_license_for_verification = 'please_attach_license_for_verification';
+  static const upgrade_membership_as_real_estate_broker =
+      'upgrade_membership_as_real_estate_broker';
+  static const please_attach_license_for_verification =
+      'please_attach_license_for_verification';
   static const attach_license = 'attach_license';
   static const attach = 'attach';
   static const write_your_message = 'write_your_message';
@@ -261,15 +300,40 @@ abstract class  LocaleKeys {
   static const consultation_cost = 'consultation_cost';
   static const pay_consultation_cost = 'pay_consultation_cost';
   static const paye = 'paye';
+  static const broker_loc = 'broker_loc';
+  static const no_items = 'no_items';
+  static const no_fav = 'no_fav';
   static const swipe_up_to_view = 'swipe_up_to_view';
   static const real_estate = 'real_estate';
   static const chat_cost = 'chat_cost';
   static const view_list = 'view_list';
-  static const please_attach_location_for_verification = 'please_attach_location_for_verification';
+  static const please_attach_location_for_verification =
+      'please_attach_location_for_verification';
+  static const sell = 'sell';
+  static const rent = 'rent';
+  static const normal = 'normal';
+  static const order = 'order';
+  static const cantdelete = 'cantdelete';
+  static const ad = 'ad';
+  static const enterUserData = 'enterUserData';
+  static const checkEmail = 'checkEmail';
+  static const payment_success = 'payment_success';
+  static const payment_failed = 'payment_failed';
+  static const delete = 'delete';
+  static const verify = 'verify';
+  static const selectlocation = 'selectlocation';
+  static const yearly = 'yearly';
+  static const monthly = 'monthly';
+  static const user_unavailable = 'user unavailable';
+  static const agree_commision = 'agree_commision';
+  static const latest_orders = 'latest_orders';
+  static const visitor = 'visitor';
+  static const loginFirst = 'loginFirst';
+  static const no_ads = 'no_ads';
+  static const no_orders = 'no_orders';
   static const navBar_home = 'navBar.home';
   static const navBar_my_ads = 'navBar.my_ads';
   static const navBar_chat = 'navBar.chat';
   static const navBar_more = 'navBar.more';
   static const navBar = 'navBar';
-
 }

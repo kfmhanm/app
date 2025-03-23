@@ -1,25 +1,23 @@
 {
-  "Retry":"Retry",
-  "Go back":"Go back",
-  "skip":"Skip",
-  "Type your message":"Type your message",
-  "enterAdName":"Enter Ad Name",
+  "Retry": "Retry",
+  "Go back": "Go back",
+  "skip": "Skip",
+  "Type your message": "Type your message",
+  "enterAdName": "Enter Ad Name",
   "onboarding1": "Find your special property with us",
   "onboarding2": "The fastest way to rent or sell",
   "onboarding3": "Our platform provides you with all properties",
-  "limit_image":"You can't add more than 5 images",
+  "limit_image": "You can't add more than 5 images",
   "onboarding": {
     "title1": "Improve Collaboration",
     "subTittle1": "Make your team work better, by making sure your team works together, and making your team work better",
     "title2": "Creative Space",
     "subTittle2": "Make your team work better, by making sure your team works together, and making your team work better",
     "title3": "Chat Room",
-    "subTittle3": "Make your team work better, by making sure your team works together, and making your team work better"
-  ,
-  "startNow": "Start Now"
+    "subTittle3": "Make your team work better, by making sure your team works together, and making your team work better",
+    "startNow": "Start Now"
   },
-  "saudi_validation" : "the phone number doesn't match"
-,
+  "saudi_validation": "the phone number doesn't match",
   "auth": {
     "login": "Login",
     "login_by_gate": "Login by National Unified Access Gateway",
@@ -48,7 +46,6 @@
     "hint_new_pass": "Enter the new password",
     "hint_confirm_pass": "Confirm the new password",
     "save_pass": "Save password",
-
     "welcome_back": "Welcome back",
     "login_to_access": "Login to access your account",
     "email": "Email",
@@ -77,7 +74,8 @@
     "smallPassword": "small Password",
     "confirmPassword": "Confirm Password",
     "passwordNotMatch": "password not match"
-  }, "home_keys": {
+  },
+  "home_keys": {
     "required_field": "Search for your property",
     "ads": "Ads",
     "my_orders": "My Orders",
@@ -107,8 +105,8 @@
     "clear": "Clear",
     "confirm": "Confirm",
     "search_for_what_you_want": "Search for what you want"
-  }
-  ,"notifications_keys":{
+  },
+  "notifications_keys": {
     "notifications": "Notifications",
     "no_notifications_yet": "No notifications yet",
     "no_notifications": "You have no notifications",
@@ -118,7 +116,7 @@
     "delete_all_notifications": "Delete all notifications",
     "delete_all_notifications_confirmation": "Are you sure you want to delete all notifications?"
   },
-  "my_ads_keys":{
+  "my_ads_keys": {
     "highlight_ad": "Highlight Ad",
     "highlight_ad_description": "To highlight your ad, you need to pay an amount based on the number of highlight days",
     "highlight": "Highlight",
@@ -142,35 +140,34 @@
     "add": "Add",
     "add_ad": "Add Ad",
     "ad_details": "Ad Details in the General Authority for Real Estate",
-  "trusted_account": "Trusted Account",
-  "untrusted_account": "Untrusted Account",
-  "member_since": "Member Since",
-  "rating": "Rating",
-  "comments": "Comments",
-  "no_comments_yet": "(No comments yet)",
-  "add_comment": "Add Comment",
-  "message": "Message",
-  "call": "Call",
-  "ad": "Ad",
-  "similar_ads": "Similar Ads",
-  "ad_owner": "Ad Owner",
-  "advertiser_rating": "Advertiser Rating",
-  "rate_advertiser": "Please rate the advertiser"
-  ,  "price_type": "Select Duration Type(Monthly/Yearly)"
-  ,  "select_Area": "Select Area"
-  ,  "select_city": "Select City"
-  ,
-  "ad_status": "Ad Status",
-  "finished": "Finished",
-  "active": "Active",
-  "stopped": "Stopped",
-  "order": "Order",
-  "main_type": "Main Type",
-  "type": "Type",
-  "sell": "Sell",
-  "rent": "Rent"
-       ,  "featured_ad": "Featured Ad"
-     ,  "featured_category": "Featured Category"
+    "trusted_account": "Trusted Account",
+    "untrusted_account": "Untrusted Account",
+    "member_since": "Member Since",
+    "rating": "Rating",
+    "comments": "Comments",
+    "no_comments_yet": "(No comments yet)",
+    "add_comment": "Add Comment",
+    "message": "Message",
+    "call": "Call",
+    "ad": "Ad",
+    "similar_ads": "Similar Ads",
+    "ad_owner": "Ad Owner",
+    "advertiser_rating": "Advertiser Rating",
+    "rate_advertiser": "Please rate the advertiser",
+    "price_type": "Select Duration Type(Monthly/Yearly)",
+    "select_Area": "Select Area",
+    "select_city": "Select City",
+    "ad_status": "Ad Status",
+    "finished": "Finished",
+    "active": "Active",
+    "stopped": "Stopped",
+    "order": "Order",
+    "main_type": "Main Type",
+    "type": "Type",
+    "sell": "Sell",
+    "rent": "Rent",
+    "featured_ad": "Featured Ad",
+    "featured_category": "Featured Category"
   },
   "rs": "R.S",
   "pay": "Pay",
@@ -215,7 +212,6 @@
   "signUp": "Sign Up",
   "confirm_password": "Confirm Password",
   "change_password": "Change Password",
-
   "settings": {
     "settings": "Settings",
     "edit_profile": "Edit Profile",
@@ -247,13 +243,15 @@
     "attachments": "Attachments",
     "complain": "Complain",
     "complain_desc": "Describe your complain or suggestion",
-    "submit": "Submit"
-    , "share_account": "Share Account",
+    "submit": "Submit",
+    "share_account": "Share Account",
     "commission_account": "Commission Account",
     "real_estate_broker_membership": "Real Estate Broker Membership",
     "real_estate_company_membership": "Real Estate Company Membership",
     "help": "Help",
     "contact_us": "Contact Us",
+    "complaint": "Complaint",
+    "send_complain": "Send Complain",
     "app_policy": "App Policy",
     "app_usage_agreement": "App Usage Agreement",
     "follow_us_on_social_media": "Follow us on social media:",
@@ -261,8 +259,8 @@
     "edit_and_save": "Edit and Save",
     "message_text": "Message Text",
     "confirm_delete_account": "Are you sure you want to delete your account?",
-    "confirm_logout": "Are you sure you want to log out of your account?"
-    ,"contact_social": "You can contact us and follow us on our following platforms"
+    "confirm_logout": "Are you sure you want to log out of your account?",
+    "contact_social": "You can contact us and follow us on our following platforms"
   },
   "chat": "Chat",
   "upgrade_membership": "Upgrade Membership",
@@ -273,7 +271,7 @@
   "write_your_message": "Write your message .....",
   "no_msg_you": "You have no private messages",
   "no_msg": "No messages",
-  "my_ads":"My ads",
+  "my_ads": "My ads",
   "ads_on_map": "Ads on the map",
   "requests": "Requests",
   "real_estate_agents": "Real estate agents",
@@ -289,32 +287,31 @@
   "chat_cost": "Chat cost",
   "view_list": "View list",
   "please_attach_location_for_verification": "Please attach the location for verification",
-  "no_ads" : "No ads found",
- "no_orders" : "No orders found",
- "sell": "Sell"
-,  "rent": "Rent",
-"normal" : "Ad",
-"payment_success" : "Payment succeeded",
-"payment_failed" : "Payment failed",
-"agree_commision": "Agree to pay the commission",
-"cantdelete": "You can't delete this item",
-"order": "Order",
-"delete" : "Delete",
-"verify" : "Verify",
-"yearly" : "Yearly",
-"monthly" : "Monthly",
-"user unavailable" : "User is unavailable",
-"enterUserData" : "Enter personal Id",
-"checkEmail" : "Check your email",
-"selectlocation" : "Select Location",
-"latest_orders":"Latest Orders",
-"visitor": "Enter as visitor",
-"loginFirst": "Please login first",
-
-"navBar": {
+  "no_ads": "No ads found",
+  "no_orders": "No orders found",
+  "sell": "Sell",
+  "rent": "Rent",
+  "normal": "Ad",
+  "payment_success": "Payment succeeded",
+  "payment_failed": "Payment failed",
+  "agree_commision": "Agree to pay the commission",
+  "cantdelete": "You can't delete this item",
+  "order": "Order",
+  "delete": "Delete",
+  "verify": "Verify",
+  "yearly": "Yearly",
+  "monthly": "Monthly",
+  "user unavailable": "User is unavailable",
+  "enterUserData": "Enter personal Id",
+  "checkEmail": "Check your email",
+  "selectlocation": "Select Location",
+  "latest_orders": "Latest Orders",
+  "visitor": "Enter as visitor",
+  "loginFirst": "Please login first",
+  "navBar": {
     "home": "Home",
     "my_ads": "My Ads",
     "chat": "Chat",
     "more": "More"
-}
+  }
 }
