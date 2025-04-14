@@ -40,12 +40,11 @@ class _LoginScreenState extends State<LoginScreen> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
     super.didChangeDependencies();
-  //  Utils.nafathtoken = await Utils.dataManager.getData('nafathtoken');
-   // log(Utils.nafathtoken.toString(), name: "ss");
-   // log(state.name);
+    //  Utils.nafathtoken = await Utils.dataManager.getData('nafathtoken');
+    // log(Utils.nafathtoken.toString(), name: "ss");
+    // log(state.name);
     if (state == AppLifecycleState.resumed) {
-context
-            .read<NafathCubit>().getNafathtoken();
+      context.read<NafathCubit>().getNafathtoken();
 
       /*
       if (Utils.nafathtoken != null) {
@@ -68,10 +67,9 @@ context
       create: (context) => AuthCubit(),
       child: BlocListener<NafathCubit, NafathState>(
         listener: (context, state) {
-          if (state is NafathRecieveRandomNumberfail){
-                        Alerts.snack(
-                                                text: "يجب ادخل رقم القومي صحيح",
-                                                state: SnackState.failed);
+          if (state is NafathRecieveRandomNumberfail) {
+            Alerts.snack(
+                text: "يجب ادخل رقم القومي صحيح", state: SnackState.failed);
           }
           if (state is NafathRecieveRandomNumberSuccessful) {
             Alerts.dialog(
@@ -108,7 +106,6 @@ context
                       onTap: () {
                         Navigator.of(context).pop(); // Close the dialog
                         Utils.redirectToNafath();
-
                       },
                       child: Text('OK'),
                     ),
@@ -155,6 +152,117 @@ context
           },
           builder: (context, state) {
             final cubit = AuthCubit.get(context);
+
+            if (true) {
+              return Scaffold(
+                appBar: AppBar(
+                  centerTitle: true,
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                  leadingWidth: 80,
+                  title: CustomText(
+                    LocaleKeys.auth_login.tr(),
+                    fontSize: 18,
+                    color: context.secondaryColor,
+                    weight: FontWeight.w700,
+                  ),
+                ),
+                body: SingleChildScrollView(
+                  child: Form(
+                    key: formKey,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CustomText(
+                            LocaleKeys.auth_description_login.tr(),
+                            fontSize: 14,
+                            weight: FontWeight.w300,
+                          ),
+                          40.ph,
+                          Image.asset(
+                            "logo".png("icons"),
+                            scale: 3,
+                          ),
+                          50.ph,
+                          TextFormFieldWidget(
+                            hintText: "enterUserData".tr(),
+                            password: false,
+                            type: TextInputType.number,
+                            onChanged: (value) {
+                              nationalId = value;
+                            },
+                          ),
+                          20.ph,
+                          ButtonWidget(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CustomText(
+                                  LocaleKeys.auth_login_by_gate.tr(),
+                                  // "تسجيل الدخول عن طريق بوابة النفاذ الوطنى الموحد",
+                                  fontSize: 16,
+                                  color: context.primaryColor,
+                                  weight: FontWeight.w700,
+                                ),
+                                4.pw,
+                                Image.asset("other_login".png("icons")),
+                              ],
+                            ),
+                            withBorder: true,
+                            buttonColor: Colors.white,
+                            width: double.infinity,
+                            // padding: const EdgeInsets.symmetric(horizontal: 15),
+                            onTap: () async {
+                              bool notificationAllowed =
+                                  await Utils.requestNotificationPermission();
+                              if (!notificationAllowed) {
+                                Alerts.snack(
+                                    text: "يجب تفعيل الاشعارات اولا",
+                                    state: SnackState.failed);
+                                return;
+                              }
+                              FocusScope.of(context).unfocus();
+                              if (nationalId != null) {
+                                //   Navigator.pop(context);
+
+                                context
+                                    .read<NafathCubit>()
+                                    .loginWithNafat(nationalId!);
+                              } else {
+                                Alerts.snack(
+                                    text: "يجب ادخل رقم القومي",
+                                    state: SnackState.failed);
+                              }
+                            },
+                          ),
+                          40.ph,
+                          ButtonWidget(
+                            title: "visitor".tr(),
+                            withBorder: true,
+                            buttonColor: Colors.white,
+                            textColor: context.primaryColor,
+                            borderColor: context.primaryColor,
+                            width: double.infinity,
+
+                            // padding: const EdgeInsets.symmetric(horizontal: 15),
+                            onTap: () async {
+                              print(Utils.token);
+                              Navigator.pushNamed(
+                                context,
+                                Routes.LayoutScreen,
+                              );
+                            },
+                          ),
+                          20.ph,
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }
             return Scaffold(
               appBar: AppBar(
                 centerTitle: true,
@@ -211,7 +319,6 @@ context
                                 color: context.secondaryColor,
                                 // weight: w300,
                                 function: () {
-
                                   Navigator.pushNamed(
                                       context, Routes.forget_passScreen);
                                 }),
@@ -251,12 +358,14 @@ context
                           buttonColor: Colors.white,
                           width: double.infinity,
                           // padding: const EdgeInsets.symmetric(horizontal: 15),
-                          onTap: () async { bool notificationAllowed=await Utils.requestNotificationPermission();
-                            if(!notificationAllowed){
+                          onTap: () async {
+                            bool notificationAllowed =
+                                await Utils.requestNotificationPermission();
+                            if (!notificationAllowed) {
                               Alerts.snack(
-                                                text: "يجب تفعيل الاشعارات اولا",
-                                                state: SnackState.failed);
-return;
+                                  text: "يجب تفعيل الاشعارات اولا",
+                                  state: SnackState.failed);
+                              return;
                             }
                             Alerts.dialog(context,
                                 child: Padding(

@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:pride/core/app_strings/locale_keys.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/utils/extentions.dart';
+import 'package:pride/core/utils/utils.dart';
 import 'package:pride/features/more/domain/repository/repository.dart';
 import 'package:pride/shared/widgets/loadinganderror.dart';
 import '../../../../core/Router/Router.dart';
@@ -49,30 +50,33 @@ class _MoreScreenState extends State<MoreScreen> {
         builder: (context, state) {
           final cubit = MoreCubit.get(context);
           return Scaffold(
-            appBar: AppbarMore(),
+            appBar:
+                (Utils.token.isNotEmpty == true) ? AppbarMore() : AppbarMore(),
             body: SingleChildScrollView(
               child: Column(
                 children: [
                   TitleProfile(
                       title: LocaleKeys.settings_settings, icon: "setting"),
-                  ProfileItem(
-                    title: LocaleKeys.change_password,
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.ChangePassScreen,
-                          arguments: (o, n, rn) async {
-                        final res = await cubit.changePass(o, n, rn);
-                        if (res == true) {
-                          Navigator.pop(context);
-                        }
-                      });
-                    },
-                  ),
-                  ProfileItem(
-                    title: LocaleKeys.favorites,
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.FavouriteScreen);
-                    },
-                  ),
+                  if ((Utils.token.isNotEmpty == true))
+                    ProfileItem(
+                      title: LocaleKeys.change_password,
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.ChangePassScreen,
+                            arguments: (o, n, rn) async {
+                          final res = await cubit.changePass(o, n, rn);
+                          if (res == true) {
+                            Navigator.pop(context);
+                          }
+                        });
+                      },
+                    ),
+                  if ((Utils.token.isNotEmpty == true))
+                    ProfileItem(
+                      title: LocaleKeys.favorites,
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.FavouriteScreen);
+                      },
+                    ),
 
                   ProfileItem(
                     title: 'language',
@@ -82,6 +86,7 @@ class _MoreScreenState extends State<MoreScreen> {
                           backgroundColor: context.background);
                     },
                   ),
+
                   // ProfileItem(
                   //   title: LocaleKeys.settings_commission_account,
                   //   onTap: () {
@@ -157,8 +162,15 @@ class _MoreScreenState extends State<MoreScreen> {
                   //             type: "use_agreement"));
                   //   },
                   // ),
-                  DeleteAccBtn(),
-                  LogoutBtn(),
+                  if (Utils.token.isNotEmpty == true) DeleteAccBtn(),
+                  if (Utils.token.isNotEmpty == true) LogoutBtn(),
+                  if (Utils.token.isEmpty == true)
+                    ProfileItem(
+                      title: LocaleKeys.auth_login.tr(),
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.LoginScreen);
+                      },
+                    ),
                   28.ph,
                   // if (false)
                   FutureBuilder(

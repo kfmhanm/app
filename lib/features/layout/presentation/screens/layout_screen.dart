@@ -72,7 +72,8 @@ class _LayoutScreenState extends State<LayoutScreen>
                           const Center(child: LoginDialog()),
                         ],
                       ),
-                (Utils.token.isNotEmpty == true)
+                // (Utils.token.isNotEmpty == true)
+                true
                     ? MoreScreen()
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.center,

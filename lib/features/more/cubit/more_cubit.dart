@@ -22,6 +22,9 @@ class MoreCubit extends Cubit<MoreStates> {
   PagesModel pagesModel = PagesModel();
 
   pages() async {
+    if ((Utils.token.isEmpty == true)) {
+      return;
+    }
     final response = await moreRepository.pagesRequest();
     if (response != null) {
       pagesModel = PagesModel.fromJson(response);
@@ -38,6 +41,9 @@ class MoreCubit extends Cubit<MoreStates> {
   }
 
   getUserData() async {
+    if ((Utils.token.isEmpty == true)) {
+      return;
+    }
     final response = await locator<SplashRepository>().getProfileRequest();
     if (response != null) {
       // final UserModel user = UserModel.fromJson(response)..token = Utils.token;

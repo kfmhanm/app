@@ -20,7 +20,8 @@ class AppbarMore extends StatefulWidget implements PreferredSizeWidget {
   State<AppbarMore> createState() => _AppbarMoreState();
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(285);
+  Size get preferredSize =>
+      Size.fromHeight((Utils.token.isNotEmpty == true) ? 285 : 110);
 }
 
 class _AppbarMoreState extends State<AppbarMore> {
@@ -54,13 +55,14 @@ class _AppbarMoreState extends State<AppbarMore> {
                 weight: FontWeight.w700,
               ),
               20.ph,
-              Stack(
-                children: [
-                  ProfileImage(
-                    height: 40,
-                    image: Utils.userModel.image ?? "",
-                  ),
-                  /*   Positioned(
+              if (Utils.token.isNotEmpty == true)
+                Stack(
+                  children: [
+                    ProfileImage(
+                      height: 40,
+                      image: Utils.userModel.image ?? "",
+                    ),
+                    /*   Positioned(
                     right: 0,
                     bottom: 0,
                     child: Container(
@@ -77,78 +79,81 @@ class _AppbarMoreState extends State<AppbarMore> {
                     ),
                   ),
                  */
-                ],
-              ),
-              Spacer(), //may make error
+                  ],
+                ),
+              if (Utils.token.isNotEmpty == true) Spacer(), //may make error
               //9.ph,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomText(
-                    Utils.userModel.name ?? "",
-                    color: context.primaryColor,
-                    fontSize: 12.0,
-                    weight: FontWeight.w700,
-                  ),
-                  4.pw,
-                  CustomText(
-                    "(${(Utils.userModel.avgRate ?? "").toDouble().roundTo2numberString})",
-                    color: LightThemeColors.textSecondary,
-                    fontSize: 12.0,
-                    weight: FontWeight.w700,
-                  ),
-                ],
-              ),
-              IconButton(
-                onPressed: () async {
-                  await Navigator.of(context).pushNamed(Routes.ProfileScreen);
-                  setState(() {});
-                },
-                icon: Row(
-                  mainAxisSize: MainAxisSize.min,
+              if (Utils.token.isNotEmpty == true)
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.edit_outlined, color: context.primaryColor),
+                    CustomText(
+                      Utils.userModel.name ?? "",
+                      color: context.primaryColor,
+                      fontSize: 12.0,
+                      weight: FontWeight.w700,
+                    ),
                     4.pw,
                     CustomText(
-                      LocaleKeys.settings_edit_profile.tr(),
+                      "(${(Utils.userModel.avgRate ?? "").toDouble().roundTo2numberString})",
                       color: LightThemeColors.textSecondary,
-                      fontSize: 14.0,
-                      weight: FontWeight.w300,
+                      fontSize: 12.0,
+                      weight: FontWeight.w700,
                     ),
                   ],
                 ),
-              ),
-              Builder(builder: (context) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    "share".svg().toSvg(),
-                    4.pw,
-                    CustomText(
-                      LocaleKeys.settings_share_account.tr(),
-                      color: LightThemeColors.primary,
-                      fontSize: 14.0,
-                      weight: FontWeight.w300,
-                    ),
-                  ],
-                )
-                    .setContainerToView(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                        radius: 25,
-                        color: context.primaryColor.withOpacity(.08))
-                    .onTap(() async {
-                  final box = context.findRenderObject() as RenderBox?;
+              if (Utils.token.isNotEmpty == true)
+                IconButton(
+                  onPressed: () async {
+                    await Navigator.of(context).pushNamed(Routes.ProfileScreen);
+                    setState(() {});
+                  },
+                  icon: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.edit_outlined, color: context.primaryColor),
+                      4.pw,
+                      CustomText(
+                        LocaleKeys.settings_edit_profile.tr(),
+                        color: LightThemeColors.textSecondary,
+                        fontSize: 14.0,
+                        weight: FontWeight.w300,
+                      ),
+                    ],
+                  ),
+                ),
+              if (Utils.token.isNotEmpty == true)
+                Builder(builder: (context) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      "share".svg().toSvg(),
+                      4.pw,
+                      CustomText(
+                        LocaleKeys.settings_share_account.tr(),
+                        color: LightThemeColors.primary,
+                        fontSize: 14.0,
+                        weight: FontWeight.w300,
+                      ),
+                    ],
+                  )
+                      .setContainerToView(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                          radius: 25,
+                          color: context.primaryColor.withOpacity(.08))
+                      .onTap(() async {
+                    final box = context.findRenderObject() as RenderBox?;
 
-                  await Share.share(
-                    Utils.userModel.deep_link_url ?? "",
-                    sharePositionOrigin:
-                        box!.localToGlobal(Offset.zero) & box.size,
-                  );
-                });
-              }),
+                    await Share.share(
+                      Utils.userModel.deep_link_url ?? "",
+                      sharePositionOrigin:
+                          box!.localToGlobal(Offset.zero) & box.size,
+                    );
+                  });
+                }),
             ],
           ),
         ],
