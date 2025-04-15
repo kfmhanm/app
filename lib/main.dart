@@ -2,6 +2,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,6 +35,9 @@ Future<void> main() async {
   FirebaseMessaging.onBackgroundMessage(
     FBMessging.firebaseMessagingBackgroundHandler,
   );
+  //  remote config
+  print("Configgggg");
+  await fetchAndActivateRemoteConfig();
   // bloc observer
   Bloc.observer = MyBlocObserver();
   // dotenv.load();
@@ -48,6 +52,26 @@ Future<void> main() async {
       saveLocale: true,
       path: 'assets/translations',
       child: const MyApp()));
+}
+
+Future<void> fetchAndActivateRemoteConfig() async {
+  final remoteConfig = FirebaseRemoteConfig.instance;
+
+  try {
+    await remoteConfig.setConfigSettings(RemoteConfigSettings(
+      fetchTimeout: const Duration(seconds: 10),
+      minimumFetchInterval: const Duration(hours: 1),
+    ));
+    await remoteConfig.fetchAndActivate();
+    final bool? ios = remoteConfig.getBool('ios');
+    if (ios != null) {
+      Utils.ios = ios;
+    }
+
+    print('ios: $ios');
+  } catch (e) {
+    print('Failed to fetch remote config: $e');
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -158,5 +182,5 @@ class MyBlocObserver extends BlocObserver {
   void onClose(BlocBase bloc) {
     print('onClose -- ${bloc.runtimeType}');
     super.onClose(bloc);
-}
+  }
 }

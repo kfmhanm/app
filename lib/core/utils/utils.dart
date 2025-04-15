@@ -26,7 +26,7 @@ import 'validations.dart';
 class Utils {
   static String?
       nafathtoken; //that come from notification if it was in background
-
+static bool ios=false;
   static String token = '';
   static String lang = '';
   static String max_price = '0';
