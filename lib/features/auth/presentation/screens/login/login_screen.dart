@@ -153,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> with WidgetsBindingObserver {
           builder: (context, state) {
             final cubit = AuthCubit.get(context);
 
-            if (Utils.ios==true)  {
+            if (Utils.ios == true) {
               return Scaffold(
                 appBar: AppBar(
                   centerTitle: true,

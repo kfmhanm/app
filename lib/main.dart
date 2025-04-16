@@ -56,14 +56,16 @@ Future<void> main() async {
 
 Future<void> fetchAndActivateRemoteConfig() async {
   final remoteConfig = FirebaseRemoteConfig.instance;
-
+  await remoteConfig.ensureInitialized();
   try {
     await remoteConfig.setConfigSettings(RemoteConfigSettings(
       fetchTimeout: const Duration(seconds: 10),
       minimumFetchInterval: const Duration(hours: 1),
     ));
+
     await remoteConfig.fetchAndActivate();
     final bool? ios = remoteConfig.getBool('ios');
+
     if (ios != null) {
       Utils.ios = ios;
     }
