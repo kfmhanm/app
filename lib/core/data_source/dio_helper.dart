@@ -39,6 +39,7 @@ class DioService {
 
   Future<ApiResponse> postData({
     required String url,
+    String? errorMessage,
     Map<String, dynamic>? body,
     Map<String, dynamic>? query,
     bool loading = false,
@@ -69,6 +70,7 @@ class DioService {
     } on DioException catch (e) {
       return getDioException(
         e: e,
+        errorMessage: errorMessage,
       );
     }
   }
@@ -157,6 +159,7 @@ class DioService {
 
   FutureOr<ApiResponse> getDioException({
     required DioException e,
+    String? errorMessage,
   }) async {
     // log("---------------autherrr");
     MyLoading.dismis();
@@ -171,7 +174,9 @@ class DioService {
       log('case 2');
       log('Server reachable. Error in resposne');
       Alerts.snack(
-          text: e.response?.data["message"] ?? "لا يمكن الوصول للسيرفير",
+          text: errorMessage ??
+              e.response?.data["message"] ??
+              "لا يمكن الوصول للسيرفير",
           state: SnackState.failed);
 
       log("hello im errroe");

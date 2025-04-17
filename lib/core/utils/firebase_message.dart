@@ -6,14 +6,12 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:path_provider/path_provider.dart';
+
 import 'package:pride/core/Router/Router.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/general/nafath/nafath_cubit.dart';
 
 import 'package:pride/core/utils/utils.dart';
-import 'package:pride/features/auth/presentation/screens/login/login_screen.dart';
 
 import '../../features/splash/domain/repository/splash_repository.dart';
 import '../../firebase_options.dart';
@@ -47,6 +45,7 @@ class FBMessging {
       message.data.toString(),
     );
     log(message.data.toString(), name: "omar");
+    log(message.toString(), name: "omar22");
     print(message.notification.toString());
     print(
       message.notification?.title?.toString() ?? 'no notificationtitke',
@@ -56,22 +55,25 @@ class FBMessging {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+
     await FirebaseMessaging.instance
         .setForegroundNotificationPresentationOptions(
       alert: true,
       badge: true,
       sound: true,
     );
-    if (message.notification?.title == "Nafath token") {}
-    if (message.data["type"] == "nafath") {
-      //  final appDocumentDir = await getApplicationDocumentsDirectory();
-      //Hive.init(appDocumentDir.path);
-      // final authBox = await Hive.openBox('data');
 
-      //  String token = message.data['message'];
+    // handleNafathLogin(message);
+    // if (message.notification?.title == "Nafath token") {}
+    // if (message.data["type"] == "nafath") {
+    //   //  final appDocumentDir = await getApplicationDocumentsDirectory();
+    //   //Hive.init(appDocumentDir.path);
+    //   // final authBox = await Hive.openBox('data');
 
-      //   await authBox.put('nafathtoken', token);
-    }
+    //   //  String token = message.data['message'];
+
+    //   //   await authBox.put('nafathtoken', token);
+    // }
   }
 
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
@@ -134,7 +136,7 @@ class FBMessging {
         value?.toMap().toString() ?? "noooooo",
       );
       if (value != null) {
-        handleNafathLogin(value);
+        // handleNafathLogin(value);
 
         FCMNotification notification = FCMNotification.fromMap(value.data);
         handleNotification(
@@ -144,7 +146,9 @@ class FBMessging {
       }
     });
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      handleNafathLogin(message);
+      if (RouteGenerator.currentRoute == Routes.LoginScreen) {
+        handleNafathLogin(message);
+      }
       log(message.data.toString(), name: "onMessage Nocheck");
       print(message.data.toString() + "onMessage Nocheck");
       print(Utils.room_id.toString() + "Utils.room_id");
@@ -171,6 +175,7 @@ class FBMessging {
         }
         if ((notificationModel.model_id == Utils.room_id &&
             notificationModel.type == 'chat')) return;
+
         plugin.show(
           payload: notificationModel.toJson(),
           message.notification.hashCode,

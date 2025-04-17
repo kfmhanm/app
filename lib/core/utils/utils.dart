@@ -26,7 +26,7 @@ import 'validations.dart';
 class Utils {
   static String?
       nafathtoken; //that come from notification if it was in background
-static bool ios=false;
+  static bool ios = false;
   static String token = '';
   static String lang = '';
   static String max_price = '0';
@@ -128,7 +128,7 @@ static bool ios=false;
     token = '';
     FCMToken = "";
     await Future.wait([
-      FBMessging.deleteToken(),
+      // FBMessging.deleteToken(),
       dataManager.deleteUserData(),
       FBMessging.unSubscripeclient()
     ]);
@@ -167,34 +167,38 @@ static bool ios=false;
     return mb;
   }
 
-static Future<bool> requestNotificationPermission({BuildContext? mycontext}) async {
-var context=mycontext??navigatorKey().currentContext!;
-  NotificationSettings settings = await FirebaseMessaging.instance.getNotificationSettings();
+  static Future<bool> requestNotificationPermission(
+      {BuildContext? mycontext}) async {
+    var context = mycontext ?? navigatorKey().currentContext!;
+    NotificationSettings settings =
+        await FirebaseMessaging.instance.getNotificationSettings();
 
-  if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-    return true;
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+      return true;
+    }
+
+    // Request permission
+    settings = await FirebaseMessaging.instance.requestPermission(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+      return true;
+    } else {
+      // If denied, show a popup
+      _showSettingsDialog(context);
+      return false;
+    }
   }
 
-  // Request permission
-  settings = await FirebaseMessaging.instance.requestPermission(
-    alert: true,
-    badge: true,
-    sound: true,
-  );
-
-  if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-    return true;
-  } else {
-    // If denied, show a popup
-    _showSettingsDialog(context);
-    return false;
-  }
-}
   static void redirectToNafath() async {
     final String url = Platform.isIOS ? 'nafath://home' : 'nic://nafath';
-    final String otherlink = Platform.isIOS ? 'https://apps.apple.com/us/app/%D9%86%D9%81%D8%A7%D8%B0-nafath/id1598909871' : 'https://play.google.com/store/apps/details?id=sa.gov.nic.myid';
-      await LauncherHelper.openApp(url,otherlink);
-    
+    final String otherlink = Platform.isIOS
+        ? 'https://apps.apple.com/us/app/%D9%86%D9%81%D8%A7%D8%B0-nafath/id1598909871'
+        : 'https://play.google.com/store/apps/details?id=sa.gov.nic.myid';
+    await LauncherHelper.openApp(url, otherlink);
   }
 }
 
@@ -214,6 +218,7 @@ extension Login on dynamic {
             child: const LoginDialog(), backgroundColor: Colors.white);
   }
 }
+
 void _showSettingsDialog(BuildContext context) {
   showDialog(
     context: context,
@@ -236,5 +241,4 @@ void _showSettingsDialog(BuildContext context) {
       ],
     ),
   );
-
 }

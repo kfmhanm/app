@@ -7,6 +7,7 @@ import 'package:pride/core/services/alerts.dart';
 import 'package:pride/core/utils/firebase_message.dart';
 import 'package:pride/core/utils/utils.dart';
 import 'package:pride/features/auth/domain/repository/auth_repository.dart';
+import 'package:pride/shared/widgets/myLoading.dart';
 
 import '../../utils/Locator.dart';
 
@@ -24,11 +25,18 @@ class NafathCubit extends Cubit<NafathState> {
 
     if (response != null) {
       if (response["random"] == null) {
-    
-        emit(NafathRecieveRandomNumberfail());
-        return false;
+        if (response["user"] != null) {
+          await Utils.saveUserInHive(response);
+          await FBMessging.subscripeclient();
+
+          emit(NafathLoginSuccessState());
+
+          return true;
+        } else {
+          emit(NafathRecieveRandomNumberfail());
+          return false;
+        }
       } else {
-  
         randomNumber = response["random"];
         emit(NafathRecieveRandomNumberSuccessful());
         return true;
@@ -60,18 +68,16 @@ class NafathCubit extends Cubit<NafathState> {
       return null;
     }
   }
+
   getNafathtoken() async {
     emit(NafathLoginLoadingState());
     final response = await nafathRepo.getNafathtoken();
 
     if (response != null) {
       if (response["token"] == null) {
-    
         emit(NafathRecieveTokenfail());
         return false;
       } else {
-  
-       
         emit(NafathRecieveTokenSuccessful());
         loginRequestFromNotification(response["token"]);
         return true;

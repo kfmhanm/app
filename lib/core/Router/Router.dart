@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -73,6 +74,7 @@ class RouteGenerator {
 
   static Route<dynamic> getRoute(RouteSettings routeSettings) {
     currentRoute = routeSettings.name.toString();
+    log("currentRoute $currentRoute");
     switch (routeSettings.name) {
       case Routes.splashScreen:
         return CupertinoPageRoute(

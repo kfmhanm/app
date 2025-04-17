@@ -14,7 +14,7 @@ class AuthRepository {
   AuthRepository(this.dioService);
   VerifyloginWithNafatRequest(String token) async {
     MyLoading.show();
-   
+
     final response = await dioService.postData(
         url: AuthEndPoints.verifyloginWithNafatRequest,
         body: {
@@ -31,12 +31,12 @@ class AuthRepository {
 
   getNafathtoken() async {
     MyLoading.show();
-    
+
     final response = await dioService.postData(
+        errorMessage: "يرجى الانتظار جاري التحقق من البيانات",
         url: AuthEndPoints.nafathToken,
         body: {
           "uuid": Utils.uuid,
-         
         },
         isForm: true,
         loading: true);
@@ -46,6 +46,7 @@ class AuthRepository {
       return null;
     }
   }
+
   loginWithNafatRequest(String nationalId) async {
     MyLoading.show();
     if (Utils.FCMToken.isEmpty) {
@@ -61,6 +62,7 @@ class AuthRepository {
         },
         isForm: true,
         loading: true);
+
     if (response.isError == false) {
       return response.response?.data['data'];
     } else {

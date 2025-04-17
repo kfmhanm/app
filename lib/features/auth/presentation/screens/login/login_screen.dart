@@ -15,6 +15,7 @@ import '../../../../../core/utils/utils.dart';
 import '../../../../../shared/widgets/button_widget.dart';
 import '../../../../../shared/widgets/customtext.dart';
 import '../../../../../shared/widgets/edit_text_widget.dart';
+import '../../../../../shared/widgets/myLoading.dart';
 import '../../../cubit/auth_cubit.dart';
 import '../../../cubit/auth_states.dart';
 
@@ -44,8 +45,10 @@ class _LoginScreenState extends State<LoginScreen> with WidgetsBindingObserver {
     // log(Utils.nafathtoken.toString(), name: "ss");
     // log(state.name);
     if (state == AppLifecycleState.resumed) {
-      context.read<NafathCubit>().getNafathtoken();
-
+      if (loginNafath) {
+        await Future.delayed(Duration(seconds: 30));
+        context.read<NafathCubit>().getNafathtoken();
+      }
       /*
       if (Utils.nafathtoken != null) {
         context
@@ -58,15 +61,20 @@ class _LoginScreenState extends State<LoginScreen> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    loginNafath = false;
     super.dispose();
   }
 
+  bool loginNafath = false;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AuthCubit(),
       child: BlocListener<NafathCubit, NafathState>(
         listener: (context, state) {
+          if (state is NafathRecieveRandomNumberSuccessful) {
+            loginNafath = true;
+          }
           if (state is NafathRecieveRandomNumberfail) {
             Alerts.snack(
                 text: "يجب ادخل رقم القومي صحيح", state: SnackState.failed);
@@ -106,6 +114,8 @@ class _LoginScreenState extends State<LoginScreen> with WidgetsBindingObserver {
                       onTap: () {
                         Navigator.of(context).pop(); // Close the dialog
                         Utils.redirectToNafath();
+                        MyLoading.show(
+                            msg: "يرجى الانتظار جاري التحقق من البيانات");
                       },
                       child: Text('OK'),
                     ),
@@ -249,9 +259,10 @@ class _LoginScreenState extends State<LoginScreen> with WidgetsBindingObserver {
                             // padding: const EdgeInsets.symmetric(horizontal: 15),
                             onTap: () async {
                               print(Utils.token);
-                              Navigator.pushNamed(
+                              Navigator.pushNamedAndRemoveUntil(
                                 context,
                                 Routes.LayoutScreen,
+                                (route) => false,
                               );
                             },
                           ),
@@ -450,10 +461,10 @@ class _LoginScreenState extends State<LoginScreen> with WidgetsBindingObserver {
 
                           // padding: const EdgeInsets.symmetric(horizontal: 15),
                           onTap: () async {
-                            print(Utils.token);
-                            Navigator.pushNamed(
+                            Navigator.pushNamedAndRemoveUntil(
                               context,
                               Routes.LayoutScreen,
+                              (route) => false,
                             );
                           },
                         ),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pride/core/utils/extentions.dart';
 
 class MyLoading {
   static bool shown = false;
 
   static show({
     bool fullScreen = false,
+    String? msg,
   }) {
     if (shown == false) {
       SmartDialog.show(
@@ -16,15 +18,31 @@ class MyLoading {
           keepSingle: true,
           builder: (context) => fullScreen
               ? loadingWidget()
-              : Dialog(
-                  child: SizedBox(
-                      width: 200, height: 200, child: loadingWidget())));
+              : msg != null
+                  ? Dialog(
+                      child: SizedBox(
+                          width: 200,
+                          height: 200,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(msg),
+                                10.ph,
+                                loadingWidget(),
+                              ],
+                            ),
+                          )))
+                  : Dialog(
+                      child: SizedBox(
+                          width: 200, height: 200, child: loadingWidget())));
 
       shown = true;
     }
   }
 
-  static Center loadingWidget() => const Center(child: CircularProgressIndicator());
+  static Center loadingWidget() =>
+      const Center(child: CircularProgressIndicator());
 
   static dismis() {
     if (shown) {
@@ -49,8 +67,8 @@ class MySuccess {
           builder: (context) => fullScreen
               ? SuccessWidget()
               : Dialog(
-              child: SizedBox(
-                  width: 200, height: 200, child: SuccessWidget())));
+                  child: SizedBox(
+                      width: 200, height: 200, child: SuccessWidget())));
 
       shown = true;
     }
@@ -64,7 +82,6 @@ class MySuccess {
       shown = false;
     } else {}
   }
-
 }
 
 class SuccessWidget extends StatefulWidget {
@@ -83,6 +100,7 @@ class _SuccessWidgetState extends State<SuccessWidget> {
       MySuccess.dismis();
     });
   }
+
   Widget build(BuildContext context) {
     return Center(child: Lottie.asset("assets/json/success.json"));
   }
