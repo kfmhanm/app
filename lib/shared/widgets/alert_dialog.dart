@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/theme/light_theme.dart';
 import 'package:pride/core/utils/extentions.dart';
-import 'package:pride/core/utils/utils.dart';
 
 import 'customtext.dart';
 

@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/utils/extentions.dart';
-import 'package:pride/core/utils/utils.dart';
 
-import '../../../../core/Router/Router.dart';
 import '../../../../core/app_strings/locale_keys.dart';
 import '../../../../core/theme/light_theme.dart';
-import '../../../../shared/widgets/button_widget.dart';
 import '../../../../shared/widgets/customtext.dart';
 import '../../cubit/home_cubit.dart';
 import '../../cubit/home_states.dart';

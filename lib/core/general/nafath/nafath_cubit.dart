@@ -3,11 +3,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:pride/core/services/alerts.dart';
 import 'package:pride/core/utils/firebase_message.dart';
 import 'package:pride/core/utils/utils.dart';
 import 'package:pride/features/auth/domain/repository/auth_repository.dart';
-import 'package:pride/shared/widgets/myLoading.dart';
 
 import '../../utils/Locator.dart';
 

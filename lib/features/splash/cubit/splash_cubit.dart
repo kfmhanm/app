@@ -9,7 +9,6 @@ import '../../../core/Router/Router.dart';
 import '../../../core/utils/Locator.dart';
 import '../../../core/utils/firebase_message.dart';
 import '../../../core/utils/utils.dart';
-import '../domain/model/splash_model.dart';
 import '../domain/repository/splash_repository.dart';
 import 'splash_states.dart';
 

@@ -98,7 +98,7 @@ class AdWidget extends StatelessWidget {
                   onTap: () async {
                     Utils.token.isNotEmpty == true
                         ? favTap?.call()
-                        : Alerts.bottomSheet(
+                        : Alerts.dialog(
                             Utils.navigatorKey().currentContext!,
                             child: const LoginDialog(),
                             backgroundColor: Colors.white);
@@ -218,8 +218,17 @@ class AdWidget extends StatelessWidget {
         ],
       ),
     ).onTap(() {
-      Navigator.pushNamed(context, Routes.AdDetailsScreen,
-          arguments: adsModel?.id ?? 0);
+      if(  Utils.token.isNotEmpty ==true) {
+        Navigator.pushNamed(context, Routes.AdDetailsScreen,
+            arguments: adsModel?.id ?? 0)
+  ;    }
+      else{
+        Alerts.dialog(
+            Utils.navigatorKey().currentContext!,
+            child: const LoginDialog(),
+            backgroundColor: Colors.white);
+      }
+
     });
   }
 }

@@ -41,7 +41,7 @@ class AdvisterSections extends StatelessWidget {
                     Utils.token.isNotEmpty == true
                         ? Navigator.pushNamed(context, Routes.AdvistorScreen,
                             arguments: adDetailsModel.user?.id)
-                        : Alerts.bottomSheet(
+                        : Alerts.dialog(
                             Utils.navigatorKey().currentContext!,
                             child: const LoginDialog(),
                             backgroundColor: Colors.white);
@@ -55,7 +55,7 @@ class AdvisterSections extends StatelessWidget {
                               ? Navigator.pushNamed(
                                   context, Routes.AdvistorScreen,
                                   arguments: adDetailsModel.user?.id)
-                              : Alerts.bottomSheet(
+                              : Alerts.dialog(
                                   Utils.navigatorKey().currentContext!,
                                   child: const LoginDialog(),
                                   backgroundColor: Colors.white);
@@ -121,7 +121,7 @@ class AdvisterSections extends StatelessWidget {
                                         onSucess: onSucess,
                                       );
                                   } else {
-                                    Alerts.bottomSheet(
+                                    Alerts.dialog(
                                         Utils.navigatorKey().currentContext!,
                                         child: const LoginDialog(),
                                         backgroundColor: Colors.white);

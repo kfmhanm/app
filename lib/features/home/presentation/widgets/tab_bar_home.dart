@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
-import 'package:pride/core/extensions/widget_extensions.dart';
 
 import '../../../../core/app_strings/locale_keys.dart';
 import '../../../../core/theme/light_theme.dart';

@@ -7,7 +7,6 @@ import 'package:pride/features/home/presentation/widgets/widgets.dart';
 import '../../../../core/app_strings/locale_keys.dart';
 import '../../../../core/services/alerts.dart';
 import '../../../../core/utils/utils.dart';
-import '../../../../shared/back_widget.dart';
 import '../../../../shared/widgets/button_widget.dart';
 import '../../../../shared/widgets/customtext.dart';
 import '../../../../shared/widgets/edit_text_widget.dart';
@@ -48,7 +47,18 @@ class _ComplainScreenState extends State<ComplainScreen> {
                 key: formKey,
                 child: Column(
                   children: <Widget>[
-                    20.ph,
+                    24.ph,
+
+                    Container(
+                        padding: EdgeInsets.all(12),
+
+                        decoration: BoxDecoration(   color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: Colors.lightBlue.withOpacity(.4),
+                          ),
+                        ),child: CustomText("comlains_desc".tr(),textStyleEnum: TextStyleEnum.caption)
+                    ),  48.ph,
                     TextFormFieldWidget(
                       type: TextInputType.name,
                       hintText: LocaleKeys.settings_name.tr(),
@@ -89,9 +99,7 @@ class _ComplainScreenState extends State<ComplainScreen> {
                         }
                       },
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
+                  32.ph
                   ],
                 ),
               ),

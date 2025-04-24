@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -6,20 +5,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/general/models/feature_model.dart';
-import 'package:pride/core/services/alerts.dart';
-import 'package:pride/core/utils/Locator.dart';
 import 'package:pride/core/utils/extentions.dart';
 import 'package:pride/features/create_ad/domain/request/create_ad_request.dart';
 import 'package:pride/shared/widgets/loadinganderror.dart';
 
 import '../../../../core/app_strings/locale_keys.dart';
-import '../../../../core/general/general_repo.dart';
 import '../../../../core/utils/utils.dart';
 import '../../../../shared/widgets/autocomplate.dart';
 import '../../../../shared/widgets/button_widget.dart';
 import '../../../../shared/widgets/edit_text_widget.dart';
-import '../../../../shared/widgets/paged_multi_select_checkbo.dart';
-import '../../../../shared/widgets/test_multi.dart';
 import '../../../ad_details/domain/model/ad_details_model.dart';
 import '../../../home/presentation/widgets/widgets.dart';
 import '../../cubit/create_ad_cubit.dart';

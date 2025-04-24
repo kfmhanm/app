@@ -4,10 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/utils/extentions.dart';
-import 'package:pride/features/ad_details/domain/model/ad_details_model.dart';
 import 'package:pride/features/home/domain/model/ads_model.dart';
 
-import '../../../../core/Router/Router.dart';
 import '../../../../core/app_strings/locale_keys.dart';
 import '../../../../core/general/general_repo.dart';
 import '../../../../core/services/alerts.dart';
@@ -16,7 +14,6 @@ import '../../../../core/utils/utils.dart';
 import '../../../../shared/widgets/edit_text_widget.dart';
 import '../../../../shared/widgets/webview_payment.dart';
 import '../../../home/presentation/widgets/ad_Widget.dart';
-import '../../cubit/my_ads_cubit.dart';
 
 class MyAdsTab extends StatefulWidget {
   const MyAdsTab(

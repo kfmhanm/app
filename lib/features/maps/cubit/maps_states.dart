@@ -1,4 +1,3 @@
-import 'package:pride/features/maps/domain/model/maps_model.dart';
 
 import '../../my_ads/domain/model/my_ads_model.dart';
 

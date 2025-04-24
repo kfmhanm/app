@@ -2,7 +2,6 @@ import 'package:pride/core/general/models/user_model.dart';
 
 import '../../../home/domain/model/ads_model.dart';
 import '../model/paged_comment_model.dart';
-import 'endpoints.dart';
 
 import '../model/ad_details_model.dart';
 import '../../../../core/data_source/dio_helper.dart';

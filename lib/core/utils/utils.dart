@@ -9,7 +9,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:pride/core/Router/Router.dart';
 import 'package:pride/core/utils/firebase_message.dart';
 import 'package:pride/core/utils/launcher.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'dart:io';
 import 'dart:math' hide log;
 import '../../features/splash/domain/model/splash_model.dart';
@@ -52,7 +51,7 @@ class Utils {
 
             fun.call();
           }
-        : Alerts.bottomSheet(Utils.navigatorKey().currentContext!,
+        : Alerts.dialog(Utils.navigatorKey().currentContext!,
             child: const LoginDialog(), backgroundColor: Colors.white);
   }
 
@@ -214,7 +213,7 @@ extension Login on dynamic {
 
             this.call();
           }
-        : Alerts.bottomSheet(Utils.navigatorKey().currentContext!,
+        : Alerts.dialog(Utils.navigatorKey().currentContext!,
             child: const LoginDialog(), backgroundColor: Colors.white);
   }
 }

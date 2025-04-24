@@ -1,7 +1,6 @@
 import 'package:pride/core/services/alerts.dart';
 
 import '../request/chats_request.dart';
-import 'endpoints.dart';
 
 import '../model/chats_model.dart';
 import '../../../../core/data_source/dio_helper.dart';

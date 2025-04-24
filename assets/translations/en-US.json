@@ -1,5 +1,6 @@
 {
   "Retry": "Retry",
+  "comlains_desc": "Please note that complaints will be responded to within a maximum of 5 working days from the date of receipt.",
   "Go back": "Go back",
   "skip": "Skip",
   "Type your message": "Type your message",
@@ -307,7 +308,7 @@
   "selectlocation": "Select Location",
   "latest_orders": "Latest Orders",
   "visitor": "Enter as visitor",
-  "loginFirst": "Please login first",
+  "loginFirst": "Please verify your account by logging in with Nafath",
   "navBar": {
     "home": "Home",
     "my_ads": "My Ads",

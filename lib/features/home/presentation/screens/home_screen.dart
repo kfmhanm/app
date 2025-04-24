@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     .onTap(() {
                   Utils.token.isNotEmpty == true
                       ? Navigator.pushNamed(context, Routes.NotificationsScreen)
-                      : Alerts.bottomSheet(Utils.navigatorKey().currentContext!,
+                      : Alerts.dialog(Utils.navigatorKey().currentContext!,
                           child: const LoginDialog(),
                           backgroundColor: Colors.white);
                 }),
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: SvgPicture.asset("map".svg()).onTap(() {
                 Utils.token.isNotEmpty == true
                     ? Navigator.pushNamed(context, Routes.MapsScreen)
-                    : Alerts.bottomSheet(Utils.navigatorKey().currentContext!,
+                    : Alerts.dialog(Utils.navigatorKey().currentContext!,
                         child: const LoginDialog(),
                         backgroundColor: Colors.white);
               }),

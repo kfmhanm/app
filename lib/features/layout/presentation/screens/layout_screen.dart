@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,7 +5,6 @@ import 'package:pride/core/Router/Router.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/utils/extentions.dart';
 import 'package:pride/features/chats/presentation/screens/chats_screen.dart';
-import 'package:pride/shared/widgets/button_widget.dart';
 
 import '../../../../core/utils/utils.dart';
 import '../../../../shared/widgets/login_dialog.dart';
@@ -60,7 +58,8 @@ class _LayoutScreenState extends State<LayoutScreen>
                           const Center(child: LoginDialog()),
                         ],
                       ),
-                (Utils.token.isNotEmpty == true)
+                (
+                    Utils.token.isNotEmpty == true)
                     ? ChatsScreen()
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.center,

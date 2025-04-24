@@ -17,7 +17,6 @@ import '../../../../../../core/general/general_repo.dart';
 import '../../../../../../core/services/alerts.dart';
 import '../../../../../../core/utils/Locator.dart';
 import '../../../../../../shared/widgets/customtext.dart';
-import '../../../../../../shared/widgets/network_image.dart';
 import '../../../../../../shared/widgets/webview_payment.dart';
 import '../../../../../ad_details/domain/repository/repository.dart';
 import '../../../../domain/model/place_model.dart';

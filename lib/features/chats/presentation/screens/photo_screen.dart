@@ -8,7 +8,6 @@ import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/utils/extentions.dart';
 import 'package:pride/features/home/presentation/widgets/widgets.dart';
 import 'package:pride/shared/widgets/edit_text_widget.dart';
-import 'package:pride/shared/widgets/svgIcon.dart';
 import 'package:photo_view/photo_view.dart';
 
 import '../../../../shared/widgets/customtext.dart';

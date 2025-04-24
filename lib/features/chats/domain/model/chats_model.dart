@@ -6,7 +6,6 @@ import 'package:pride/features/ad_details/domain/model/ad_details_model.dart';
 
 import '../../../../core/general/models/user_model.dart';
 import '../../../../core/utils/Utils.dart';
-import '../../../home/domain/model/home_model.dart';
 
 class ChatModel {
   String? id;

@@ -12,7 +12,6 @@ import 'package:pride/features/home/domain/request/home_request.dart';
 import 'package:pride/features/home/presentation/widgets/widgets.dart';
 import 'package:pride/shared/widgets/customtext.dart';
 
-import '../../../../core/Router/Router.dart';
 import '../../../../core/general/general_repo.dart';
 import '../../../../core/general/models/area_model.dart';
 import '../../../../core/utils/Locator.dart';

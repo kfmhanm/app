@@ -7,9 +7,7 @@ import 'package:pride/features/home/presentation/widgets/widgets.dart';
 import '../../../../core/app_strings/locale_keys.dart';
 import '../../../../core/services/alerts.dart';
 import '../../../../core/utils/utils.dart';
-import '../../../../shared/back_widget.dart';
 import '../../../../shared/widgets/button_widget.dart';
-import '../../../../shared/widgets/customtext.dart';
 import '../../../../shared/widgets/edit_text_widget.dart';
 import '../cubit/cubit.dart';
 import '../cubit/states.dart';
@@ -90,14 +88,13 @@ class _ContactUsState extends State<ContactUs> {
                         }
                       },
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+
+                  32.ph
+                  ]
+                )
+              )
+            )
+          )
         );
       }),
     );

@@ -106,7 +106,7 @@ class _CutomAutoCompleteTextFeildState<T>
     super.initState();
     controller = widget.controller ??
         TextEditingController(text: widget.initialValue?.tr());
-    selectedItem = controller?.text;
+    selectedItem = controller.text;
   }
 
   @override

@@ -1,12 +1,10 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_cluster_manager_2/google_maps_cluster_manager_2.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart'
     hide Cluster, ClusterManager;
-import 'package:meta/meta.dart';
 import 'package:widget_to_marker/widget_to_marker.dart';
 
 import '../../../../../../core/utils/Locator.dart';
@@ -14,7 +12,6 @@ import '../../../../../../core/utils/utils.dart';
 import '../../../../../../shared/widgets/customtext.dart';
 import '../../../../../home/domain/model/ads_model.dart';
 import '../../../../../my_ads/domain/model/my_ads_model.dart';
-import '../../../../domain/model/maps_model.dart';
 import '../../../../domain/model/place_model.dart';
 import '../../../../domain/repository/repository.dart';
 import '../../../widgets/widgets.dart';

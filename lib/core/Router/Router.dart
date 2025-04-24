@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pride/features/ad_details/domain/model/ad_details_model.dart';
 import 'package:pride/features/static_page/presentation/complain.dart';
@@ -18,9 +17,7 @@ import '../../features/auth/presentation/screens/reset_password/reset_password_s
 import '../../features/auth/presentation/screens/sign_up/sign_up_screen.dart';
 import '../../features/chats/presentation/screens/chat_screen.dart';
 import '../../features/chats/presentation/screens/photo_screen.dart';
-import '../../features/create_ad/presentation/screens/create_ad_screen.dart';
 import '../../features/create_ad/presentation/screens/create_general.dart';
-import '../../features/create_ad/presentation/screens/features_screen.dart';
 import '../../features/home/domain/request/home_request.dart';
 import '../../features/home/presentation/screens/latest_screen.dart';
 import '../../features/home/presentation/screens/search_screen.dart';

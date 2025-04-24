@@ -8,7 +8,6 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/utils/extentions.dart';
 import 'package:pride/features/home/presentation/widgets/widgets.dart';
-import '../../../../core/Router/Router.dart';
 import '../../../../core/app_strings/locale_keys.dart';
 import '../../../../core/services/alerts.dart';
 import '../../../../core/theme/light_theme.dart';

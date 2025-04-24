@@ -184,7 +184,7 @@ class _AdDetailsScreenState extends State<AdDetailsScreen> {
                                         "username": adDetailsModel.user?.name
                                             ?.toString(),
                                       })
-                                    : Alerts.bottomSheet(
+                                    : Alerts.dialog(
                                         Utils.navigatorKey().currentContext!,
                                         child: const LoginDialog(),
                                         backgroundColor: Colors.white);
@@ -252,7 +252,7 @@ class _AdDetailsScreenState extends State<AdDetailsScreen> {
                                     Utils.token.isNotEmpty == true
                                         ? LauncherHelper.call(
                                             adDetailsModel.user?.phone ?? "")
-                                        : Alerts.bottomSheet(
+                                        : Alerts.dialog(
                                             Utils.navigatorKey()
                                                 .currentContext!,
                                             child: const LoginDialog(),

@@ -24,38 +24,19 @@ class LoginDialog extends StatelessWidget {
             color: Colors.black,
           ),
           32.ph,
-          Row(
-            children: [
-              Expanded(
-                child: ButtonWidget(
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(
-                      context,
-                      Routes.LoginScreen,
-                    );
-                  },
-                  title: LocaleKeys.auth_enter.tr(),
-                  withBorder: true,
-                  buttonColor: context.primaryColor,
-                  textColor: Colors.white,
-                  borderColor: context.primaryColor,
-                ),
-              ),
-              12.pw,
-              Expanded(
-                child: ButtonWidget(
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(
-                      context,
-                      Routes.RegisterScreen,
-                    );
-                  },
-                  title: LocaleKeys.auth_create.tr(),
-                ),
-              ),
-            ],
+          ButtonWidget(
+            onTap: () {
+
+              Navigator.pushNamed(
+                context,
+                Routes.LoginScreen,
+              );
+            },
+            title: LocaleKeys.auth_enter.tr(),
+            withBorder: true,
+            buttonColor: context.primaryColor,
+            textColor: Colors.white,
+            borderColor: context.primaryColor,
           ),
         ],
       ),

@@ -3,15 +3,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/utils/extentions.dart';
 import 'package:pride/features/home/presentation/widgets/widgets.dart';
-import 'package:pride/shared/widgets/loadinganderror.dart';
 
-import '../../../../core/app_strings/locale_keys.dart';
 import '../../../../core/general/general_repo.dart';
 import '../../../../core/utils/Locator.dart';
-import '../../../../shared/widgets/customtext.dart';
 import '../../../home/domain/model/ads_model.dart';
 import '../../../home/presentation/widgets/ad_Widget.dart';
 import '../../cubit/home_cubit.dart';

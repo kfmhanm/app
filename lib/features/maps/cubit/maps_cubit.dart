@@ -12,7 +12,6 @@ import 'package:google_maps_cluster_manager_2/google_maps_cluster_manager_2.dart
 import '../../../shared/widgets/customtext.dart';
 import '../../home/domain/model/ads_model.dart';
 import '../../my_ads/domain/model/my_ads_model.dart';
-import '../domain/model/maps_model.dart';
 import '../domain/model/place_model.dart';
 import '../domain/repository/repository.dart';
 import '../presentation/widgets/widgets.dart';

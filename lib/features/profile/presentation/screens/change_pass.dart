@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/core/utils/extentions.dart';
 import 'package:pride/features/home/presentation/widgets/widgets.dart';
@@ -9,7 +8,6 @@ import '../../../../core/Router/Router.dart';
 import '../../../../core/app_strings/locale_keys.dart';
 import '../../../../core/utils/utils.dart';
 import '../../../../shared/widgets/button_widget.dart';
-import '../../../../shared/widgets/customtext.dart';
 import '../../../../shared/widgets/edit_text_widget.dart';
 
 class ChangePassScreen extends StatefulWidget {
