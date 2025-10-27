@@ -33,6 +33,7 @@ import '../../features/splash/presentation/screens/on_boarding/on_boarding_scree
 import '../../features/splash/presentation/screens/splash/splash.dart';
 import '../../features/static_page/presentation/about_us.dart';
 import '../../features/static_page/presentation/contact_us.dart';
+import '../../features/ad_validation/presentation/screens/ad_validation_input_screen.dart';
 
 class Routes {
   static const String splashScreen = "/splashScreen";
@@ -64,6 +65,7 @@ class Routes {
   static const String SearchScreen = "SearchScreen";
   static const String MapsScreen = "MapsScreen";
   static const String LatestScreen = "LatestScreen";
+  static const String AdValidationScreen = "AdValidationScreen";
 }
 
 class RouteGenerator {
@@ -286,6 +288,12 @@ class RouteGenerator {
               return AdvistorScreen(
                 profileId: routeSettings.arguments as int,
               );
+            });
+      case Routes.AdValidationScreen:
+        return CupertinoPageRoute(
+            settings: routeSettings,
+            builder: (_) {
+              return const AdValidationInputScreen();
             });
       default:
         return unDefinedRoute();

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pride/core/Router/Router.dart';
@@ -17,6 +16,7 @@ import '../widgets/widgets.dart';
 
 class LayoutScreen extends StatefulWidget {
   const LayoutScreen({super.key, this.index});
+
   final int? index;
 
   @override
@@ -58,8 +58,7 @@ class _LayoutScreenState extends State<LayoutScreen>
                           const Center(child: LoginDialog()),
                         ],
                       ),
-                (
-                    Utils.token.isNotEmpty == true)
+                (Utils.token.isNotEmpty == true)
                     ? ChatsScreen()
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +111,7 @@ class _LayoutScreenState extends State<LayoutScreen>
                       backgroundColor: context.primaryColor,
                       shape: CircleBorder(),
                       onPressed: () {
-                        Navigator.pushNamed(context, Routes.CreateGeneral);
+                        Navigator.pushNamed(context, Routes.AdValidationScreen);
                       },
                       child: Icon(
                         Icons.add,
