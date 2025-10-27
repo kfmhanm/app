@@ -240,6 +240,7 @@ DEPENDENCIES:
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite (from `.symlinks/plugins/sqflite/darwin`)
+  - TweetNacl (~> 1.0)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
   - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/darwin`)
   - video_thumbnail (from `.symlinks/plugins/video_thumbnail/ios`)
@@ -392,6 +393,6 @@ SPEC CHECKSUMS:
   webview_flutter_wkwebview: 45a041c7831641076618876de3ba75c712860c6b
   XYUUID: 9a2483143d14fc5204b619042ca65073df9fbd88
 
-PODFILE CHECKSUM: c1093f0f37cc801386fe579e1a6cb1fb9902f327
+PODFILE CHECKSUM: 2dc86c9f4d3f8be050fbe94d42274fa7ff79902f
 
 COCOAPODS: 1.16.2
