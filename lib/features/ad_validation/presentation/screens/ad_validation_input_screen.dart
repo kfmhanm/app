@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
@@ -21,6 +22,9 @@ class _AdValidationInputScreenState extends State<AdValidationInputScreen> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController adLicenseController = TextEditingController();
   final TextEditingController advertiserIdController = TextEditingController();
+  
+  // ID Type: 1 = رقم الهوية, 2 = الرقم الموحد
+  int selectedIdType = 2;
 
   @override
   void dispose() {
@@ -35,7 +39,7 @@ class _AdValidationInputScreenState extends State<AdValidationInputScreen> {
       cubit.validateAd(
         adLicenseNumber: adLicenseController.text.trim(),
         advertiserId: advertiserIdController.text.trim(),
-        idType: 2,
+        idType: selectedIdType,
       );
     }
   }
@@ -46,7 +50,7 @@ class _AdValidationInputScreenState extends State<AdValidationInputScreen> {
       create: (context) => AdValidationCubit(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('التحقق من الإعلان'),
+          title: Text('ad_validation.title'.tr()),
           centerTitle: true,
         ),
         body: BlocConsumer<AdValidationCubit, AdValidationStates>(
@@ -94,7 +98,7 @@ class _AdValidationInputScreenState extends State<AdValidationInputScreen> {
                     const SizedBox(height: 30),
                     // Title
                     Text(
-                      'التحقق من ترخيص الإعلان',
+                      'ad_validation.page_title'.tr(),
                       style: context.headlineSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -102,7 +106,7 @@ class _AdValidationInputScreenState extends State<AdValidationInputScreen> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      'أدخل رقم ترخيص ورقم الهوية للتحقق',
+                      'ad_validation.page_subtitle'.tr(),
                       style: context.bodyMedium?.copyWith(
                         color: Colors.grey[600],
                       ),
@@ -112,26 +116,85 @@ class _AdValidationInputScreenState extends State<AdValidationInputScreen> {
                     // Ad License Number Field
                     TextFormFieldWidget(
                       controller: adLicenseController,
-                      label: 'رقم الترخيص الإعلاني',
-                      hintText: 'أدخل رقم الترخيص الإعلاني',
+                      label: 'ad_validation.ad_license_label'.tr(),
+                      hintText: 'ad_validation.ad_license_hint'.tr(),
                       type: TextInputType.number,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'هذا الحقل مطلوب';
+                          return 'ad_validation.required_field'.tr();
                         }
                         return null;
                       },
                     ),
                     const SizedBox(height: 20),
+                    // ID Type Selection
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'ad_validation.id_type_label'.tr(),
+                          style: context.titleLarge?.copyWith(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: RadioListTile<int>(
+                                value: 1,
+                                groupValue: selectedIdType,
+                                onChanged: (value) {
+                                  setState(() {
+                                    selectedIdType = value!;
+                                  });
+                                },
+                                title: Text(
+                                  'ad_validation.national_id'.tr(),
+                                  style: const TextStyle(fontSize: 14),
+                                ),
+                                contentPadding: EdgeInsets.zero,
+                                visualDensity: VisualDensity.compact,
+                                activeColor: context.primaryColor,
+                              ),
+                            ),
+                            Expanded(
+                              child: RadioListTile<int>(
+                                value: 2,
+                                groupValue: selectedIdType,
+                                onChanged: (value) {
+                                  setState(() {
+                                    selectedIdType = value!;
+                                  });
+                                },
+                                title: Text(
+                                  'ad_validation.unified_number'.tr(),
+                                  style: const TextStyle(fontSize: 14),
+                                ),
+                                contentPadding: EdgeInsets.zero,
+                                visualDensity: VisualDensity.compact,
+                                activeColor: context.primaryColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
                     // Advertiser ID Field
                     TextFormFieldWidget(
                       controller: advertiserIdController,
-                      label: 'رقم الهوية / السجل التجاري',
-                      hintText: 'أدخل رقم الهوية / السجل التجاري',
+                      label: selectedIdType == 1
+                          ? 'ad_validation.national_id'.tr()
+                          : 'ad_validation.unified_number'.tr(),
+                      hintText: selectedIdType == 1
+                          ? 'أدخل ${'ad_validation.national_id'.tr()}'
+                          : 'أدخل ${'ad_validation.unified_number'.tr()}',
                       type: TextInputType.number,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'هذا الحقل مطلوب';
+                          return 'ad_validation.required_field'.tr();
                         }
                         return null;
                       },
@@ -139,7 +202,9 @@ class _AdValidationInputScreenState extends State<AdValidationInputScreen> {
                     const SizedBox(height: 40),
                     // Check Button
                     ButtonWidget(
-                      title: state is AdValidationLoading ? 'جاري التحقق...' : 'التحقق',
+                      title: state is AdValidationLoading
+                          ? 'ad_validation.verifying'.tr()
+                          : 'ad_validation.verify_button'.tr(),
                       onTap: state is AdValidationLoading
                           ? null
                           : () => _validateAd(context),

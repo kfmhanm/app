@@ -11,3 +11,4 @@ class AdValidationFailed extends AdValidationStates {
   AdValidationFailed(this.errorMessage);
 }
 
+

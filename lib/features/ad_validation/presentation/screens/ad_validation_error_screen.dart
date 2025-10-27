@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/shared/widgets/button_widget.dart';
@@ -14,7 +15,7 @@ class AdValidationErrorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('نتيجة التحقق'),
+        title: Text('ad_validation.result_title'.tr()),
         centerTitle: true,
       ),
       body: Padding(
@@ -29,7 +30,7 @@ class AdValidationErrorScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             Text(
-              'فشل التحقق',
+              'ad_validation.validation_failed'.tr(),
               style: context.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Colors.red.shade700,
@@ -55,8 +56,9 @@ class AdValidationErrorScreen extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             ButtonWidget(
-              title: 'المحاولة مرة أخرى',
+              title: 'ad_validation.try_again'.tr(),
               onTap: () {
+                Navigator.pop(context);
                 Navigator.pop(context);
               },
               height: 50,
@@ -69,7 +71,7 @@ class AdValidationErrorScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Text(
-                'رجوع',
+                'ad_validation.back_button'.tr(),
                 style: context.bodyLarge?.copyWith(
                   color: context.primaryColor,
                   fontWeight: FontWeight.w600,
@@ -82,4 +84,5 @@ class AdValidationErrorScreen extends StatelessWidget {
     );
   }
 }
+
 

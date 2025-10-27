@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pride/core/extensions/all_extensions.dart';
 import 'package:pride/shared/widgets/button_widget.dart';
@@ -14,17 +15,17 @@ class AdValidationResultScreen extends StatelessWidget {
     if (advertisement == null) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('نتيجة التحقق'),
+          title: Text('ad_validation.result_title'.tr()),
         ),
-        body: const Center(
-          child: Text('لا توجد بيانات'),
+        body: Center(
+          child: Text('ad_validation.no_data'.tr()),
         ),
       );
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('نتيجة التحقق'),
+        title: Text('ad_validation.result_title'.tr()),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -49,7 +50,7 @@ class AdValidationResultScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'نشط',
+                    'ad_validation.active_status'.tr(),
                     style: context.headlineSmall?.copyWith(
                       color: Colors.green.shade700,
                       fontWeight: FontWeight.bold,
@@ -57,7 +58,7 @@ class AdValidationResultScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    'حالة الترخيص',
+                    'ad_validation.license_status'.tr(),
                     style: context.bodyMedium?.copyWith(
                       color: Colors.green.shade600,
                     ),
@@ -74,69 +75,69 @@ class AdValidationResultScreen extends StatelessWidget {
                   _buildDetailCard(
                     context,
                     children: [
-                      _buildDetailRow('رقم الترخيص', advertisement!.adLicenseNumber),
-                      _buildDetailRow('معتمد عقد الوساطة', advertisement!.advertiserName),
-                      _buildDetailRow('تاريخ إصدار الترخيص', advertisement!.creationDate),
-                      _buildDetailRow('تاريخ انتهاء الترخيص', advertisement!.endDate),
+                      _buildDetailRow('ad_validation.license_number'.tr(), advertisement!.adLicenseNumber),
+                      _buildDetailRow('ad_validation.license_holder'.tr(), advertisement!.advertiserName),
+                      _buildDetailRow('ad_validation.creation_date'.tr(), advertisement!.creationDate),
+                      _buildDetailRow('ad_validation.end_date'.tr(), advertisement!.endDate),
                     ],
                   ),
                   const SizedBox(height: 15),
                   _buildDetailCard(
                     context,
-                    title: 'تفاصيل العقار',
+                    title: 'ad_validation.property_details'.tr(),
                     children: [
-                      _buildDetailRow('نوع العقار', advertisement!.propertyType),
-                      _buildDetailRow('نوع الإعلان', advertisement!.advertisementType),
-                      _buildDetailRow('مساحة العقار', '${advertisement!.propertyArea} م²'),
-                      _buildDetailRow('سعر المتر', '${advertisement!.propertyPrice} ريال'),
-                      _buildDetailRow('السعر الإجمالي', '${advertisement!.landTotalPrice} ريال'),
-                      _buildDetailRow('الاتجاه', advertisement!.propertyFace),
-                      _buildDetailRow('عرض الشارع', '${advertisement!.streetWidth} م'),
+                      _buildDetailRow('ad_validation.property_type'.tr(), advertisement!.propertyType),
+                      _buildDetailRow('ad_validation.ad_type'.tr(), advertisement!.advertisementType),
+                      _buildDetailRow('ad_validation.property_area'.tr(), '${advertisement!.propertyArea} ${'ad_validation.square_meter'.tr()}'),
+                      _buildDetailRow('ad_validation.price_per_meter'.tr(), '${advertisement!.propertyPrice} ${'ad_validation.riyal'.tr()}'),
+                      _buildDetailRow('ad_validation.total_price'.tr(), '${advertisement!.landTotalPrice} ${'ad_validation.riyal'.tr()}'),
+                      _buildDetailRow('ad_validation.direction'.tr(), advertisement!.propertyFace),
+                      _buildDetailRow('ad_validation.street_width'.tr(), '${advertisement!.streetWidth} ${'ad_validation.meter'.tr()}'),
                     ],
                   ),
                   const SizedBox(height: 15),
                   _buildDetailCard(
                     context,
-                    title: 'الموقع',
+                    title: 'ad_validation.location'.tr(),
                     children: [
-                      _buildDetailRow('المنطقة', advertisement!.location?.region),
-                      _buildDetailRow('المدينة', advertisement!.location?.city),
-                      _buildDetailRow('الحي', advertisement!.location?.district),
-                      _buildDetailRow('رقم المبنى', advertisement!.location?.buildingNumber),
-                      _buildDetailRow('الرمز البريدي', advertisement!.location?.postalCode),
+                      _buildDetailRow('ad_validation.region'.tr(), advertisement!.location?.region),
+                      _buildDetailRow('ad_validation.city'.tr(), advertisement!.location?.city),
+                      _buildDetailRow('ad_validation.district'.tr(), advertisement!.location?.district),
+                      _buildDetailRow('ad_validation.building_number'.tr(), advertisement!.location?.buildingNumber),
+                      _buildDetailRow('ad_validation.postal_code'.tr(), advertisement!.location?.postalCode),
                     ],
                   ),
                   const SizedBox(height: 15),
                   _buildDetailCard(
                     context,
-                    title: 'معلومات الصك',
+                    title: 'ad_validation.deed_info'.tr(),
                     children: [
-                      _buildDetailRow('رقم الصك', advertisement!.deedNumber),
-                      _buildDetailRow('نوع الصك', advertisement!.titleDeedTypeName),
-                      _buildDetailRow('رقم المخطط', advertisement!.planNumber),
-                      _buildDetailRow('رقم القطعة', advertisement!.landNumber),
+                      _buildDetailRow('ad_validation.deed_number'.tr(), advertisement!.deedNumber),
+                      _buildDetailRow('ad_validation.deed_type'.tr(), advertisement!.titleDeedTypeName),
+                      _buildDetailRow('ad_validation.plan_number'.tr(), advertisement!.planNumber),
+                      _buildDetailRow('ad_validation.land_number'.tr(), advertisement!.landNumber),
                     ],
                   ),
                   if (advertisement!.borders != null) ...[
                     const SizedBox(height: 15),
                     _buildDetailCard(
                       context,
-                      title: 'الحدود',
+                      title: 'ad_validation.borders'.tr(),
                       children: [
                         _buildDetailRow(
-                          'الحد الشمالي',
+                          'ad_validation.north_border'.tr(),
                           '${advertisement!.borders?.northLimitName ?? ''} ${advertisement!.borders?.northLimitDescription ?? ''} (${advertisement!.borders?.northLimitLengthChar ?? ''})',
                         ),
                         _buildDetailRow(
-                          'الحد الجنوبي',
+                          'ad_validation.south_border'.tr(),
                           '${advertisement!.borders?.southLimitName ?? ''} ${advertisement!.borders?.southLimitDescription ?? ''} (${advertisement!.borders?.southLimitLengthChar ?? ''})',
                         ),
                         _buildDetailRow(
-                          'الحد الشرقي',
+                          'ad_validation.east_border'.tr(),
                           '${advertisement!.borders?.eastLimitName ?? ''} ${advertisement!.borders?.eastLimitDescription ?? ''} (${advertisement!.borders?.eastLimitLengthChar ?? ''})',
                         ),
                         _buildDetailRow(
-                          'الحد الغربي',
+                          'ad_validation.west_border'.tr(),
                           '${advertisement!.borders?.westLimitName ?? ''} ${advertisement!.borders?.westLimitDescription ?? ''} (${advertisement!.borders?.westLimitLengthChar ?? ''})',
                         ),
                       ],
@@ -147,7 +148,7 @@ class AdValidationResultScreen extends StatelessWidget {
                     const SizedBox(height: 15),
                     _buildDetailCard(
                       context,
-                      title: 'المرافق',
+                      title: 'ad_validation.utilities'.tr(),
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8),
@@ -167,7 +168,7 @@ class AdValidationResultScreen extends StatelessWidget {
                   ],
                   const SizedBox(height: 30),
                   ButtonWidget(
-                    title: 'رجوع',
+                    title: 'ad_validation.back_button'.tr(),
                     onTap: () {
                       Navigator.pop(context);
                       Navigator.pop(context);
@@ -270,4 +271,5 @@ class AdValidationResultScreen extends StatelessWidget {
     );
   }
 }
+
 
